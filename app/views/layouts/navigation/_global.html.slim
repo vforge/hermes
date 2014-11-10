@@ -1,0 +1,13 @@
+.container.global-navigation
+  .ui.secondary.menu
+    = link_to dashboard_path, class: 'item' do
+      /i.dashboard.icon
+      = t '.dashboard'
+    - if @current_user.role.admin?
+      = link_to admin_users_path, class: 'item' do
+        /i.users.icon
+        = t '.users'
+    .right.menu
+      = link_to logout_path, class: 'item' do
+        i.off.icon
+        = t '.logout'

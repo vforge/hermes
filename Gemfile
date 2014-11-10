@@ -8,7 +8,7 @@ gem 'sqlite3'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem "sass", '~> 3.2.5'
+gem 'sass', '~> 3.2.5'
 gem 'sass-rails', '~> 4.0.2'
 
 # Use CoffeeScript for .js.coffee assets and views
@@ -95,7 +95,8 @@ gem 'randumb'
 gem 'exception_notification'
 
 # https://github.com/slim-template/slim
-gem 'slim'
+# gem 'slim'
+gem 'slim-rails'
 
 # https://github.com/ambethia/recaptcha/
 gem 'recaptcha'

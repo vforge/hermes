@@ -1,0 +1,14 @@
+.container
+  header.ui.header
+    = t '.header'
+
+  section.ui.segment
+    = form_tag do
+      .ui.form
+        .field
+          label for="email" = t '.email'
+          input type="text" name="email" id="email"
+        .field
+          label for="password" = t '.password'
+          input type="password" name="password" id="password"
+        input.ui.blue.submit.button type="submit" value=t('.submit')

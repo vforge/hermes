@@ -1,0 +1,6 @@
+- if model.errors.any?
+  .panel
+    header = t '.header', count: model.errors.count
+    ul
+      - model.errors.full_messages.each_with_index do |msg, index|
+        li = msg

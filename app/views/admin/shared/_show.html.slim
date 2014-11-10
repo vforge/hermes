@@ -1,0 +1,11 @@
+.container
+  table.ui.table.segment
+    thead
+      tr
+        th = t '.th.property'
+        th = t '.th.value'
+    tbody
+      - what.attributes.each_pair do |name, value|
+        tr
+          td = name
+          td = value

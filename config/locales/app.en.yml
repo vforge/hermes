@@ -1,0 +1,74 @@
+en:
+  admin:
+    shared:
+      actions:
+        back: Back
+        create: Create
+        edit: Edit
+        destroy: Destroy
+        show: Show
+      are_you_sure: Are you sure?
+      show:
+        th:
+          property: Property
+          value: Value
+    users:
+      icon: users
+      form:
+        submit: Save
+      new:
+        header: New user
+      show:
+        header: Show user
+      edit:
+        header: Edit user
+      index:
+        header: Users (%{count})
+        th:
+          id: ID
+          email: E-mail
+          role: Role
+          settings:
+            locale: Locale
+  layouts:
+    navigation:
+      global:
+        dashboard: Home
+        users: Users
+        logout: Logout
+  session:
+    new:
+      header: Log-in
+      email: E-Mail
+      password: Password
+      submit: Login
+  dashboard:
+    home:
+      header: Home dashboard
+      subheader: Check stats and overall health
+  simple_form:
+    labels:
+      user:
+        email: E-mail
+        password: Password
+        password_confirmation: Password confirmation
+        role: Role
+        locale: Locale
+  enumerize:
+    user:
+      role:
+        user: Normal
+        admin: Admin
+      locale:
+        en: English
+        pl: Polski
+  messages:
+    unauthorized: Action unauthorized
+    session:
+      logged_in: Logged in, <strong>%{user}</strong>
+      logged_out: Logged out
+      error: Wrong user email or password
+    users:
+      created: User created
+      destroyed: User destroyed
+      updated: User updated.

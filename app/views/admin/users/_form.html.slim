@@ -1,0 +1,35 @@
+.container
+  = simple_form_for [:admin, @user] do |f|
+    = render 'shared/error_box', model: @user
+    .ui.form.segment
+      = f.input  :email
+      .two.fields
+        = f.input  :password
+        = f.input  :password_confirmation
+      .two.fields
+        .field
+          = f.label  :role
+          .ui.dropdown.selection
+            = f.hidden_field :role
+            .default.text
+              |...
+            i.dropdown.icon
+            .menu
+              - User.role.options.each do |label, value|
+                .item data-value=value = label
+        .field
+          = f.label  :locale
+          .ui.dropdown.selection
+            = f.hidden_field :locale
+            .default.text
+              |...
+            i.dropdown.icon
+            .menu
+              - User.locale.options.each do |label, value|
+                .item data-value=value = label
+      .ui.clearing.divider
+      .field
+        = f.button :submit, t('.submit')
+
+javascript:
+  $('.ui.selection.dropdown').dropdown();

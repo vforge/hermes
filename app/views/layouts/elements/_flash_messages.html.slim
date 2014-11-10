@@ -1,0 +1,6 @@
+- if flash.present?
+  #flash-messages
+    - flash.each do |name, msg|
+      - if msg.is_a?(String)
+        - class_names = "container ui #{name} message"
+        div class=class_names id="flash_#{name}" = msg.html_safe

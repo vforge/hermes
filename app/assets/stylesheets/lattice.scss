@@ -1,0 +1,94 @@
+// vars
+$lattice-columns: 12;
+$lattice-toggle-point-small: 600px;
+$lattice-toggle-point-big: 1000px;
+$lattice-small-padding: 10px;
+$lattice-medium-padding: 15px;
+$lattice-big-padding: 20px;
+
+
+// mixins for generating lattice itself
+@mixin lattice-columns($lattice-name) {
+  // zero-width column
+  .#{$lattice-name}-0 {
+    display: none;
+    width: 0;
+  }
+
+  // loop for all possible columns
+  @for $i from 1 through $lattice-columns {
+    @for $j from 1 through $i - 1 {
+
+      // lattice column .<name>-<j>-<i>
+      .#{$lattice-name}-#{$j}-#{$i} {
+        width: 100% * ($j / $i);
+      }
+    }
+
+    // full width column
+    .#{$lattice-name}-#{$i}-#{$i} {
+      width: 100%;
+    }
+  }
+}
+
+@mixin lattice-layout($lattice-size, $lattice-padding) {
+  $lattice-half-padding: $lattice-padding / 2;
+
+  [class*='#{$lattice-size}-'], [class*='#{$lattice-size}-']:after, [class*='#{$lattice-size}-']:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  [class*='#{$lattice-size}-'] {
+    float: left;
+    padding: 0 $lattice-half-padding;
+  }
+
+  .lattice-row {
+    padding: $lattice-padding $lattice-half-padding 0 $lattice-half-padding;
+  }
+
+  @include lattice-columns($lattice-size);
+}
+
+// lattice itself
+
+// 0) general styles
+.lattice-row {
+  padding: 0;
+
+  &:after {
+    box-sizing: border-box;
+
+    clear: both;
+    content: "";
+    display: table;
+  }
+  &, &:after, &:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+.push-right {
+  float: right;
+}
+
+// 1) small
+@media (max-width: $lattice-toggle-point-small) {
+  @include lattice-layout('small', $lattice-small-padding);
+}
+
+// 2) medium
+@media (min-width: $lattice-toggle-point-small + 1px) and (max-width: $lattice-toggle-point-big) {
+  @include lattice-layout('medium', $lattice-medium-padding);
+}
+
+// 3) big
+@media (min-width: $lattice-toggle-point-big + 1px) {
+  @include lattice-layout('big', $lattice-big-padding);
+}
+

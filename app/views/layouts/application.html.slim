@@ -1,0 +1,21 @@
+html
+  head
+    meta charset="utf-8"
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    /title = ""
+    /meta name="description" content=""
+    /meta name="keywords" content=""
+    /meta name="author" content=""
+    = render 'layouts/elements/favicon'
+    = javascript_include_tag "application"
+    = stylesheet_link_tag    "application", media: "all"
+    = csrf_meta_tags
+  body class=@body_classes
+    - if @current_user.present?
+      = render 'layouts/navigation/global'
+    = render 'layouts/elements/flash_messages'
+    = yield :above_content
+    #application
+      = yield
+    = render 'layouts/elements/fonts'
