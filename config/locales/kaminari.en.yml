@@ -1,0 +1,7 @@
+en:
+  kaminari:
+    first: "<<"
+    last: ">>"
+    next: ">"
+    previous: "<"
+    truncate: "..."

@@ -1,0 +1,7 @@
+Filtering by an `:example_group` subhash is deprecated. Use the subhash to filter directly instead. Called from c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/draper-1.3.0/lib/draper/test/rspec_integration.rb:10:in `block in <module:Draper>'.
+Requiring `rspec/autorun` when running RSpec via the `rspec` command is deprecated. Called from c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'.
+
+If you need more of the backtrace for any of these deprecations to
+identify where to make the necessary changes, you can configure
+`config.raise_errors_for_deprecations!`, and it will turn the
+deprecation warnings into errors, giving you the full backtrace.

@@ -1,0 +1,29 @@
+require: rubocop-rspec
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'lib/**/*'
+    - 'script/**/*'
+
+Style/Encoding:
+  EnforcedStyle: when_needed
+
+Style/LineLength:
+  Enabled: false
+
+Style/SingleSpaceBeforeFirstArg:
+  Enabled: false
+
+Style/EmptyLinesAroundBody:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
