@@ -50,6 +50,9 @@ RSpec.configure do |config|
   config.order = 'random'
 
   config.pattern << ',spec/**/*.spec.rb'
+
+  config.include Rails.application.routes.url_helpers
+  config.include Capybara::DSL
 end
 
 # cleanup file uploads after test

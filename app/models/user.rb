@@ -7,7 +7,7 @@
 #  email           :string(255)
 #  password_digest :string(255)
 #  role            :string(255)
-#  settings        :string(255)
+#  locale          :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
 #

@@ -28,8 +28,10 @@ en:
           id: ID
           email: E-mail
           role: Role
-          settings:
-            locale: Locale
+          locale: Locale
+  shared:
+    error_box:
+      header: There were some errors (%{count})
   layouts:
     navigation:
       global:

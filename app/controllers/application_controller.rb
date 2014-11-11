@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user
-    redirect_to login_url, alert: I18n.t('messages.unauthorized') if (@current_user.nil? || @current_user.id.nil?)
+    redirect_to join_url, alert: I18n.t('messages.unauthorized') if (@current_user.nil? || @current_user.id.nil?)
   end
 
   def authorize_anon
@@ -30,6 +30,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admin
-    redirect_to login_url, alert: I18n.t('messages.unauthorized') unless (@current_user && @current_user.role.admin?)
+    redirect_to join_url, alert: I18n.t('messages.unauthorized') unless (@current_user && @current_user.role.admin?)
   end
 end

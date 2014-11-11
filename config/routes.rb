@@ -1,15 +1,4 @@
 Mercury::Application.routes.draw do
-  namespace :admin do
-  get 'users/index'
-  end
-
-  namespace :admin do
-  get 'users/new'
-  end
-
-  namespace :admin do
-  get 'users/edit'
-  end
 
   namespace :admin do
     resources :users
