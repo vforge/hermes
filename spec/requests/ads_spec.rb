@@ -1,40 +1,40 @@
 require 'rails_helper'
 
-RSpec.describe "Admin::Users", type: :request do
+RSpec.describe "Ads", type: :request do
   before(:each) do
-    login_admin
+    login_user
   end
 
-  describe "GET admin_users_path" do
+  describe "GET ads_path" do
     it "responds successfully with an HTTP 200 status code" do
-      get admin_users_path
+      get ads_path
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET admin_user_path" do
+  describe "GET ad_path" do
     it "responds successfully with an HTTP 200 status code" do
-      get admin_user_path(id: 1)
+      get ad_path(id: 1)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET new_admin_user_path" do
+  describe "GET new_ad_path" do
     it "responds successfully with an HTTP 200 status code" do
-      get new_admin_user_path
+      get new_ad_path
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET edit_admin_user_path" do
+  describe "GET edit_ad_path" do
     it "responds successfully with an HTTP 200 status code" do
-      get edit_admin_user_path(id: 1)
+      get edit_ad_path(id: 1)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)

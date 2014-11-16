@@ -1,12 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Admin::UsersController, type: :routing do
-  before(:each) do
-    admin = FactoryGirl.create(:user, :admin, password: 'pw', password_confirmation: 'pw')
-    
-    post join_path(email: admin.email, password: 'pw')
-  end
-
   describe "routing" do
     it "routes to #index" do
       expect(get: "/admin/users").to route_to("admin/users#index")
