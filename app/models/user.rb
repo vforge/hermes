@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20141110195125
+# Schema version: 20141116174002
 #
 # Table name: users
 #
@@ -10,6 +10,11 @@
 #  locale          :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
+#
+# Indexes
+#
+#  us_ep  (email,password_digest)
+#  us_r   (role)
 #
 
 class User < ActiveRecord::Base

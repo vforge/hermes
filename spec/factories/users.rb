@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20141110195125
+# Schema version: 20141116174002
 #
 # Table name: users
 #
@@ -11,6 +11,11 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #
+# Indexes
+#
+#  us_ep  (email,password_digest)
+#  us_r   (role)
+#
 
 FactoryGirl.define do
   factory :user do
@@ -20,11 +25,11 @@ FactoryGirl.define do
     role                  :user
 
     trait :normal do
-      role "user"
+      role :user
     end
 
     trait :admin do
-      role "admin"
+      role :admin
     end
   end
 end
