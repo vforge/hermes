@@ -11,11 +11,11 @@ class Admin::UsersController < Admin::BaseController
   def show
   end
 
-  def new
-    @user = User.new
+  def edit
   end
 
-  def edit
+  def new
+    @user = User.new
   end
 
   def create
@@ -29,8 +29,6 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    @user.settings.locale = params[:settings_locale]
-
     if @user.update(user_params)
       redirect_to edit_admin_user_path(@user), notice: t('messages.users.updated')
     else

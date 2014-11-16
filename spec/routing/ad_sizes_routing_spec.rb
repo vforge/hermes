@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe TargetParamsController, type: :routing do
+RSpec.describe AdSizesController, type: :routing do
   describe "routing" do
     it "routes to #index" do
       expect(get: "/ad_sizes").to route_to("ad_sizes#index")
