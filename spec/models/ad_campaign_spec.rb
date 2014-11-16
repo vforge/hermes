@@ -32,4 +32,11 @@ RSpec.describe AdCampaign, type: :model do
   it "can be instantiated" do
     expect(FactoryGirl.build_stubbed(:ad_campaign)).to be_an_instance_of(AdCampaign)
   end
+  #
+  it "is invalid with invalid data" do
+    expect(FactoryGirl.build_stubbed(:ad_campaign, name: nil)).to be_invalid
+    expect(FactoryGirl.build_stubbed(:ad_campaign, company: nil)).to be_invalid
+    expect(FactoryGirl.build_stubbed(:ad_campaign, starting_at: nil)).to be_invalid
+    expect(FactoryGirl.build_stubbed(:ad_campaign, ending_at: nil)).to be_invalid
+  end
 end

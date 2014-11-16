@@ -23,4 +23,5 @@ class User < ActiveRecord::Base
   enumerize :role,   in: [:user, :admin], default: :user
   enumerize :locale, in: [:en, :pl],      default: :en
 
+  validates :email, presence: true, email: true
 end

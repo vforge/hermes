@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141116174002) do
 
   create_table "ad_sizes", force: true do |t|
     t.string   "name"
+    t.string   "classification"
     t.integer  "width"
     t.integer  "height"
     t.datetime "created_at"

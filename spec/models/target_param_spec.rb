@@ -26,4 +26,11 @@ RSpec.describe TargetParam, type: :model do
   it "can be instantiated" do
     expect(FactoryGirl.build_stubbed(:target_param)).to be_an_instance_of(TargetParam)
   end
+  #
+  it "is invalid with invalid data" do
+    expect(FactoryGirl.build_stubbed(:target_param, name: nil)).to be_invalid
+    expect(FactoryGirl.build_stubbed(:target_param, company: nil)).to be_invalid
+    expect(FactoryGirl.build_stubbed(:target_param, possible_values: nil)).to be_invalid
+    expect(FactoryGirl.build_stubbed(:target_param, default: nil)).to be_invalid
+  end
 end

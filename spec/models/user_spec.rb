@@ -31,4 +31,13 @@ RSpec.describe User, type: :model do
     expect(FactoryGirl.build_stubbed(:user)).to         be_an_instance_of(User)
     expect(FactoryGirl.build_stubbed(:user, :admin)).to be_an_instance_of(User)
   end
+  #
+  it "is invalid with invalid email" do
+    expect(FactoryGirl.build_stubbed(:user, email: nil)).to be_invalid
+    expect(FactoryGirl.build_stubbed(:user, email: '')).to be_invalid
+
+    %w(email invalid@email@invalid invalid@ @email).each do |email|
+      expect(FactoryGirl.build_stubbed(:user, email: email)).to be_invalid
+    end
+  end
 end

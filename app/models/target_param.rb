@@ -17,4 +17,8 @@
 #
 
 class TargetParam < ActiveRecord::Base
+  validates :name,            presence: true
+  validates :category,        presence: true
+  validates :possible_values, presence: true
+  validates :default,         presence: true
 end

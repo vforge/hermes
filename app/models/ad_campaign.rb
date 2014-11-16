@@ -22,4 +22,9 @@
 
 class AdCampaign < ActiveRecord::Base
   enumerize :status, in: [:active, :inactive], default: :active
+
+  validates :name,        presence: true
+  validates :company,     presence: true
+  validates :starting_at, presence: true
+  validates :ending_at,   presence: true
 end

@@ -1,0 +1,28 @@
+name,classification,width,height
+"medium rectangle",primary,300,250
+"large rectangle",primary,336,280
+"leaderboard",primary,728,90
+"half page",primary,300,600
+"large mobile banner",primary,320,100
+"mobile leaderboard",secondary,320,50
+"banner",secondary,468,60
+"half banner",secondary,234,60
+"skyscraper",secondary,120,600
+"vertical banner",secondary,120,240
+"wide skyscraper",secondary,160,600
+"portrait",secondary,300,1050
+"large leaderboard",secondary,970,90
+"large leaderboard (pushed)",secondary,970,415
+"billboard.",secondary,970,250
+"square",secondary,250,250
+"small square",secondary,200,200
+"small rectangle",secondary,180,150
+"button",secondary,125,125
+"vertical rectangle",secondary,240,400
+"panorama",secondary,980,120
+"triple widescreen",secondary,250,360
+"top banner”,secondary,930,180
+"netboard”,secondary,580,400
+"triple billboard",secondary,750,300
+"double billboard",secondary,750,200
+"billboard",secondary,750,100
