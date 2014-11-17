@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "AdCampaigns", type: :request do
   before(:each) do
     login_user
+
+    @ad_campaign = FactoryGirl.create(:ad_campaign)
   end
 
   describe "GET ad_campaigns_path" do

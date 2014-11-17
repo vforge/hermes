@@ -136,6 +136,13 @@ group :development, :test do
   # https://github.com/colszowka/simplecov
   gem 'simplecov'
 
+  # https://github.com/glebm/i18n-tasks
+  gem 'i18n-tasks', '~> 0.7.4'
+
+  gem 'coveralls'#, require: false
+end
+
+group :development do
   # https://github.com/railsbp/rails_best_practices
   gem 'rails_best_practices'
 
@@ -187,13 +194,8 @@ group :development, :test do
   # sort_yaml < in.yml > out.yml
   gem 'i18n_yaml_sorter'
 
-  # https://github.com/glebm/i18n-tasks
-  gem 'i18n-tasks', '~> 0.7.4'
-
   # https://github.com/YorickPeterse/ruby-lint
   gem 'ruby-lint'
-
-  gem 'coveralls'#, require: false
 
   gem 'rubocop'#, require: false
   gem 'rubocop-rspec'

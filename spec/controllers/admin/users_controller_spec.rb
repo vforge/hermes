@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Admin::UsersController, type: :controller do
   before(:each) do
-    login FactoryGirl.create(:user, :admin)
+    @user = FactoryGirl.create(:user, :admin)
+    login @user
   end
 
   describe "GET index" do
@@ -19,6 +20,10 @@ RSpec.describe Admin::UsersController, type: :controller do
       expect(response).to render_template(:index)
       expect(response).to render_template("index")
       expect(response).to render_template("admin/users/index")
+    end
+
+    it "renders proper data" do
+      expect(assigns(:users)).to eq([@user])
     end
   end
 
@@ -54,6 +59,10 @@ RSpec.describe Admin::UsersController, type: :controller do
       expect(response).to render_template("show")
       expect(response).to render_template("admin/users/show")
     end
+
+    it "renders proper data" do
+      expect(assigns(:user)).to eq(@user)
+    end
   end
   
   describe "GET edit" do
@@ -70,6 +79,10 @@ RSpec.describe Admin::UsersController, type: :controller do
       expect(response).to render_template(:edit)
       expect(response).to render_template("edit")
       expect(response).to render_template("admin/users/edit")
+    end
+
+    it "renders proper data" do
+      expect(assigns(:user)).to eq(@user)
     end
   end
 

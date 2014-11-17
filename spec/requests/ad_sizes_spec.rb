@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "AdSizes", type: :request do
   before(:each) do
     login_user
+
+    @ad_size = FactoryGirl.create(:ad_size)
   end
 
   describe "GET ad_sizes_path" do

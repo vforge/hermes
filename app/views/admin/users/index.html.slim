@@ -1,4 +1,4 @@
-= render 'admin/shared/top_nav', count: @users.count
+= render 'shared/top_nav_for_record', count: @users.count, prefix: 'admin'
 .container
   table.ui.compact.table.segment
     thead
@@ -17,10 +17,10 @@
           td.c = user.locale
           td.actions
             .ui.icon.buttons
-              = link_to admin_user_path(user), class: "ui micro button", title: t('admin.shared.actions.show') do
+              = link_to admin_user_path(user), class: "ui micro button", title: t('shared.actions.show') do
                 i.unhide.icon
               - if (@current_user.role.admin? or user.role.user?) and not user == @current_user
-                = link_to edit_admin_user_path(user), class: "ui micro button", title: t('admin.shared.actions.edit') do
+                = link_to edit_admin_user_path(user), class: "ui micro button", title: t('shared.actions.edit') do
                   i.edit.icon
-                = link_to admin_user_path(user), method: :delete, data: {confirm: t("admin.shared.are_you_sure")}, class: "negative ui micro button", title: t('admin.shared.actions.destroy') do
+                = link_to admin_user_path(user), method: :delete, data: {confirm: t("shared.are_you_sure")}, class: "negative ui micro button", title: t('shared.actions.destroy') do
                   i.trash.icon

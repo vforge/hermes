@@ -5,7 +5,7 @@ class AdsController < ApplicationController
   params_for :ads#, :email, :password, :password_confirmation, :locale
 
   def index
-    @adss = AdCampaign.all
+    @ads = Ad.all
   end
 
   def show
@@ -15,14 +15,14 @@ class AdsController < ApplicationController
   end
 
   def new
-    @ads = AdCampaign.new
+    @ads = Ad.new
   end
 
   def create
-    @ads = AdCampaign.new(ads_params)
+    @ads = Ad.new(ads_params)
 
     if @ads.save
-      redirect_to edit_admin_ads_path(@ads), notice: t('messages.adss.created')
+      redirect_to edit_ads_path(@ads), notice: t('messages.ads.created')
     else
       render :new
     end
@@ -30,7 +30,7 @@ class AdsController < ApplicationController
 
   def update
     if @ads.update(ads_params)
-      redirect_to edit_admin_ads_path(@ads), notice: t('messages.adss.updated')
+      redirect_to edit_ads_path(@ads), notice: t('messages.ads.updated')
     else
       render :edit
     end
@@ -39,12 +39,12 @@ class AdsController < ApplicationController
   def destroy
     @ads.destroy
 
-    redirect_to admin_adss_path, notice: t('messages.adss.destroyed')
+    redirect_to ads_path, notice: t('messages.ads.destroyed')
   end
 
   private
 
   def set_ads
-    @ads = AdCampaign.find(params[:id])
+    @ads = Ad.find(params[:id])
   end
 end

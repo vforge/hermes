@@ -1,19 +1,19 @@
 en:
+  icons:
+    users: user
+  shared:
+    actions:
+      back: Back
+      create: Create
+      edit: Edit
+      destroy: Destroy
+      show: Show
+    are_you_sure: Are you sure?
+    th:
+      property: Property
+      value: Value
   admin:
-    shared:
-      actions:
-        back: Back
-        create: Create
-        edit: Edit
-        destroy: Destroy
-        show: Show
-      are_you_sure: Are you sure?
-      show:
-        th:
-          property: Property
-          value: Value
     users:
-      icon: users
       form:
         submit: Save
       new:
@@ -74,3 +74,15 @@ en:
       created: User created
       destroyed: User destroyed
       updated: User updated.
+    ads:
+      created: Ad created
+      destroyed: Ad destroyed
+      updated: Ad updated.
+    ad_campaigns:
+      created: Ad Campaign created
+      destroyed: Ad Campaign destroyed
+      updated: Ad Campaign updated.
+    target_params:
+      created: Target Param created
+      destroyed: Target Param destroyed
+      updated: Target Param updated.

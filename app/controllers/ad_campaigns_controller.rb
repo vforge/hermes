@@ -22,7 +22,7 @@ class AdCampaignsController < ApplicationController
     @ad_campaign = AdCampaign.new(ad_campaign_params)
 
     if @ad_campaign.save
-      redirect_to edit_admin_ad_campaign_path(@ad_campaign), notice: t('messages.ad_campaigns.created')
+      redirect_to edit_ad_campaign_path(@ad_campaign), notice: t('messages.ad_campaigns.created')
     else
       render :new
     end
@@ -30,7 +30,7 @@ class AdCampaignsController < ApplicationController
 
   def update
     if @ad_campaign.update(ad_campaign_params)
-      redirect_to edit_admin_ad_campaign_path(@ad_campaign), notice: t('messages.ad_campaigns.updated')
+      redirect_to edit_ad_campaign_path(@ad_campaign), notice: t('messages.ad_campaigns.updated')
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class AdCampaignsController < ApplicationController
   def destroy
     @ad_campaign.destroy
 
-    redirect_to admin_ad_campaigns_path, notice: t('messages.ad_campaigns.destroyed')
+    redirect_to ad_campaigns_path, notice: t('messages.ad_campaigns.destroyed')
   end
 
   private

@@ -1,0 +1,62 @@
+- model_name  = params[:controller].classify.demodulize.underscore
+- models_name = model_name.pluralize
+
+- count ||= false
+
+- prefix ||= ''
+- i18n_prefix = prefix.length > 0 ? prefix + '.' : prefix
+- path_prefix = prefix.length > 0 ? prefix + '_' : prefix
+
+- icon = t("icons.#{models_name}")
+
+- readonly ||= false
+
+section.container
+  - case params[:action]
+  - when 'edit', 'update'
+    header.ui.header
+      - if icon
+        i class="#{icon} icon"
+      .content = t "#{i18n_prefix}#{models_name}.edit.header", count: count
+    .ui.tiny.buttons
+      = link_to send("#{path_prefix}#{models_name}_path"), class: 'ui button' do
+        i.left.icon
+        = t 'shared.actions.back'
+
+  - when 'new', 'create'
+    header.ui.header
+      - if icon
+        i class="#{icon} icon"
+      .content = t "#{i18n_prefix}#{models_name}.new.header", count: count
+    .ui.tiny.buttons
+      = link_to send("#{path_prefix}#{models_name}_path"), class: 'ui button' do
+        i.left.icon
+        = t 'shared.actions.back'
+
+  - when 'index'
+    header.ui.header
+      - if icon
+        i class="#{icon} icon"
+      .content = t "#{i18n_prefix}#{models_name}.index.header", count: count
+    .ui.tiny.buttons
+      = link_to send("dashboard_path"), class: 'ui button' do
+        i.left.icon
+        = t 'shared.actions.back'
+      - unless readonly
+        = link_to send("new_#{path_prefix}#{model_name}_path"), class: 'ui button' do
+          i.plus.icon
+          = t 'shared.actions.create'
+
+  - when 'show'
+    header.ui.header
+      - if icon
+        i class="#{icon} icon"
+      .content = t "#{i18n_prefix}#{models_name}.show.header", count: count
+    .ui.tiny.buttons
+      = link_to send("#{path_prefix}#{models_name}_path"), class: 'ui button' do
+        i.left.icon
+        = t 'shared.actions.back'
+      - unless readonly
+        = link_to send("edit_#{path_prefix}#{model_name}_path"), class: 'ui button' do
+          i.plus.icon
+          = t 'shared.actions.edit'
