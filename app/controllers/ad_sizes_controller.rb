@@ -1,4 +1,4 @@
-class AdSizesController < ApplicationController
+class AdSizesController < BaseController
   before_action :set_ad_size, only: [:show]
 
   def index

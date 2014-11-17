@@ -8,15 +8,11 @@ module LoginHelper
   end
 
   def login_user
-    u = FactoryGirl.create(:user)
-
-    post join_path(email: u.email, password: 'password')
+    post_via_redirect join_path, email: FactoryGirl.create(:user).email, password: 'password'
   end
 
   def login_admin
-    a = FactoryGirl.create(:user, :admin)
-
-    post join_path(email: a.email, password: 'password')
+    post_via_redirect join_path, email: FactoryGirl.create(:user, :admin).email, password: 'password'
   end
 
   def logout

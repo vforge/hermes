@@ -1,8 +1,10 @@
 en:
   icons:
     users: user
-    ads: money
-    ad_sizes: money
+    ads: picture
+    ad_sizes: fullscreen
+    ad_campaigns: money
+    target_params: screenshot
   shared:
     actions:
       back: Back
@@ -14,25 +16,39 @@ en:
     th:
       property: Property
       value: Value
+  ad_sizes:
+    show:
+      header: Show Ad Size
+    index:
+      header: Ad Sizes (%{count})
+  ads:
+    new:
+      header: New Ad
+    show:
+      header: Show Ad
+    edit:
+      header: Edit Ad
+    index:
+      header: Ads (%{count})
+  ad_campaigns:
+    new:
+      header: New Ad Campaign
+    show:
+      header: Show Ad Campaign
+    edit:
+      header: Edit Ad Campaign
+    index:
+      header: Ad Campaigns (%{count})
   admin:
-    ad_sizes:
+    target_params:
       new:
-        header: New Ad Size
+        header: New Target Param
       show:
-        header: Show Ad Size
+        header: Show Target Param
       edit:
-        header: Edit Ad Size
+        header: Edit Target Param
       index:
-        header: Ad Sizes (%{count})
-    ads:
-      new:
-        header: New Ad
-      show:
-        header: Show Ad
-      edit:
-        header: Edit Ad
-      index:
-        header: Ads (%{count})
+        header: Target Params (%{count})
     users:
       form:
         submit: Save

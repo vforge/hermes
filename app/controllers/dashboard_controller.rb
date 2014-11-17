@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class DashboardController < BaseController
   def home
   end
 end

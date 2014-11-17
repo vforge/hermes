@@ -1,6 +1,4 @@
 class SessionController < ApplicationController
-  before_action :authorize_anon, except: [:destroy]
-
   def new
   end
 

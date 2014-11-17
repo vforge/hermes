@@ -1,4 +1,4 @@
-class AdCampaignsController < ApplicationController
+class AdCampaignsController < BaseController
   before_action :set_ad_campaign, only: [:show, :edit, :update, :destroy]
 
   expose :ad_campaign,     attributes: :ad_campaign_params

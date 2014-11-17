@@ -5,7 +5,7 @@ gem 'rails', '~> 4.1.0'
 
 # Use sqlite3 and MySQL as the database for Active Record
 gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql2', '0.3.15'
 
 # Use SCSS for stylesheets
 gem 'sass', '~> 3.2.5'
@@ -119,10 +119,10 @@ group :development, :test do
   # gem 'rspec-legacy_formatters'
   # guard needs those
   #require 'rbconfig'
-  #gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
+  # gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
   gem 'guard-rspec'
-  gem 'rb-inotify'
-  gem 'libnotify'
+  gem 'rb-inotify' unless RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
+  gem 'libnotify' unless RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
   gem 'rb-fsevent' if `uname` =~ /Darwin/
   gem 'factory_girl_rails'
   gem 'factory_girl-seeds'

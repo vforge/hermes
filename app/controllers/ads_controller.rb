@@ -1,4 +1,4 @@
-class AdsController < ApplicationController
+class AdsController < BaseController
   before_action :set_ads, only: [:show, :edit, :update, :destroy]
 
   expose :ads,     attributes: :ads_params
