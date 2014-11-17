@@ -1,6 +1,8 @@
 en:
   icons:
     users: user
+    ads: money
+    ad_sizes: money
   shared:
     actions:
       back: Back
@@ -13,15 +15,33 @@ en:
       property: Property
       value: Value
   admin:
+    ad_sizes:
+      new:
+        header: New Ad Size
+      show:
+        header: Show Ad Size
+      edit:
+        header: Edit Ad Size
+      index:
+        header: Ad Sizes (%{count})
+    ads:
+      new:
+        header: New Ad
+      show:
+        header: Show Ad
+      edit:
+        header: Edit Ad
+      index:
+        header: Ads (%{count})
     users:
       form:
         submit: Save
       new:
-        header: New user
+        header: New User
       show:
-        header: Show user
+        header: Show User
       edit:
-        header: Edit user
+        header: Edit User
       index:
         header: Users (%{count})
         th:
@@ -37,6 +57,9 @@ en:
       global:
         dashboard: Home
         users: Users
+        target_params: Target Params
+        ad_campaigns: Ad Campaigns
+        ad_sizes: Ad Sizes
         logout: Logout
   session:
     new:
