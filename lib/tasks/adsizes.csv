@@ -13,7 +13,7 @@ name,classification,width,height
 "portrait",secondary,300,1050
 "large leaderboard",secondary,970,90
 "large leaderboard (pushed)",secondary,970,415
-"billboard.",secondary,970,250
+"billboard",secondary,970,250
 "square",secondary,250,250
 "small square",secondary,200,200
 "small rectangle",secondary,180,150
@@ -21,8 +21,8 @@ name,classification,width,height
 "vertical rectangle",secondary,240,400
 "panorama",secondary,980,120
 "triple widescreen",secondary,250,360
-"top banner”,secondary,930,180
-"netboard”,secondary,580,400
+"top banner",secondary,930,180
+"netboard",secondary,580,400
 "triple billboard",secondary,750,300
 "double billboard",secondary,750,200
 "billboard",secondary,750,100

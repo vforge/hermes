@@ -20,13 +20,15 @@ ActiveRecord::Schema.define(version: 20141116174002) do
     t.datetime "ending_at"
     t.string   "target"
     t.string   "status"
+    t.boolean  "visible",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ad_campaigns", ["company"], name: "ac_c"
-  add_index "ad_campaigns", ["status", "starting_at", "ending_at"], name: "ac_sse"
-  add_index "ad_campaigns", ["status"], name: "ac_s"
+  add_index "ad_campaigns", ["visible", "company"], name: "ac_c"
+  add_index "ad_campaigns", ["visible", "status", "starting_at", "ending_at"], name: "ac_sse"
+  add_index "ad_campaigns", ["visible", "status"], name: "ac_s"
+  add_index "ad_campaigns", ["visible"], name: "ac_v"
 
   create_table "ad_sizes", force: true do |t|
     t.string   "name"
@@ -40,15 +42,20 @@ ActiveRecord::Schema.define(version: 20141116174002) do
   create_table "ads", force: true do |t|
     t.string   "filename"
     t.integer  "ad_campaign_id"
+    t.text     "href"
     t.string   "status"
     t.integer  "ad_size_id"
+    t.boolean  "visible",        default: true
+    t.integer  "count_requests", default: 0
+    t.integer  "count_clicks",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ads", ["status", "ad_campaign_id"], name: "ad_sa"
-  add_index "ads", ["status", "ad_size_id"], name: "ad_sa2"
-  add_index "ads", ["status"], name: "ad_s"
+  add_index "ads", ["visible", "status", "ad_campaign_id"], name: "ad_sa"
+  add_index "ads", ["visible", "status", "ad_size_id"], name: "ad_sa2"
+  add_index "ads", ["visible", "status"], name: "ad_s"
+  add_index "ads", ["visible"], name: "ad_v"
 
   create_table "target_params", force: true do |t|
     t.string   "name"
@@ -66,11 +73,13 @@ ActiveRecord::Schema.define(version: 20141116174002) do
     t.string   "password_digest"
     t.string   "role"
     t.string   "locale"
+    t.boolean  "visible",         default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email", "password_digest"], name: "us_ep"
-  add_index "users", ["role"], name: "us_r"
+  add_index "users", ["visible", "email", "password_digest"], name: "us_ep"
+  add_index "users", ["visible", "role"], name: "us_r"
+  add_index "users", ["visible"], name: "us_v"
 
 end

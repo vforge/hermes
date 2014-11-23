@@ -1,11 +1,21 @@
 Mercury::Application.routes.draw do
 
+  concern :activated do
+    member do
+      post 'activate'
+      post 'inactivate'
+    end
+  end
+
   namespace :admin do
     resources :users
     resources :target_params
   end
-  resources :ads
-  resources :ad_campaigns
+
+  resources :ad_campaigns, concerns: [:activated] do
+    resources :ads, concerns: [:activated]
+  end
+
   resources :ad_sizes, only: [:index, :show]
 
 

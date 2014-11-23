@@ -6,16 +6,21 @@
 #  id             :integer          not null, primary key
 #  filename       :string(255)
 #  ad_campaign_id :integer
+#  href           :text
 #  status         :string(255)
 #  ad_size_id     :integer
+#  visible        :boolean          default(TRUE)
+#  count_requests :integer          default(0)
+#  count_clicks   :integer          default(0)
 #  created_at     :datetime
 #  updated_at     :datetime
 #
 # Indexes
 #
-#  ad_s    (status)
-#  ad_sa   (status,ad_campaign_id)
-#  ad_sa2  (status,ad_size_id)
+#  ad_s    (visible,status)
+#  ad_sa   (visible,status,ad_campaign_id)
+#  ad_sa2  (visible,status,ad_size_id)
+#  ad_v    (visible)
 #
 
 require 'rails_helper'

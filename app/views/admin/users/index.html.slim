@@ -13,8 +13,8 @@
         tr
           td.r = user.id
           td.c = user.email
-          td.c = user.role
-          td.c = user.locale
+          td.c = user.role.text
+          td.c = user.locale.text
           td.actions
             .ui.icon.buttons
               = link_to admin_user_path(user), class: "ui micro button", title: t('shared.actions.show') do

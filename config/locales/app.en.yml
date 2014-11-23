@@ -1,17 +1,24 @@
 en:
   icons:
     users: user
-    ads: picture
+    ads: photo
     ad_sizes: fullscreen
     ad_campaigns: money
     target_params: screenshot
   shared:
+    error_box:
+      header: There were some errors (%{count})
     actions:
       back: Back
       create: Create
       edit: Edit
       destroy: Destroy
       show: Show
+      inactivate: Inactivate
+      activate: Activate
+      details: Details
+    labels:
+      count: "&nbsp;(%{count})&nbsp;"
     are_you_sure: Are you sure?
     th:
       property: Property
@@ -21,16 +28,32 @@ en:
       header: Show Ad Size
     index:
       header: Ad Sizes (%{count})
+      th:
+        id: ID
+        name: Name
+        classification: Classification
+        size: Size
   ads:
+    form:
+      submit: Save
     new:
-      header: New Ad
+      header: "Ad Campaign #%{parent_id} | New Ad"
     show:
-      header: Show Ad
+      header: "Ad Campaign #%{parent_id} | Show Ad"
     edit:
-      header: Edit Ad
+      header: "Ad Campaign #%{parent_id} | Edit Ad"
     index:
-      header: Ads (%{count})
+      header: "Ad Campaign #%{parent_id} | Ads (%{count})"
+      th:
+        id: ID
+        status: Status
+        thumbnail: Thumbnail
+        href: HREF
+        count_clicks: "#Clicks"
+        count_requests: "#Reqs"
   ad_campaigns:
+    form:
+      submit: Save
     new:
       header: New Ad Campaign
     show:
@@ -39,8 +62,22 @@ en:
       header: Edit Ad Campaign
     index:
       header: Ad Campaigns (%{count})
+      th:
+        id: ID
+        name: Name
+        company: Company
+        from_to: From - To
+        starting_at: Staring at
+        ending_at: Ending at
+        target: Targeting
+        status: Status
+        ads: Ads
+        count_clicks: "&sum;&nbsp;#Clicks"
+        count_requests: "&sum;&nbsp;#Reqs"
   admin:
     target_params:
+      form:
+        submit: Save
       new:
         header: New Target Param
       show:
@@ -65,9 +102,6 @@ en:
           email: E-mail
           role: Role
           locale: Locale
-  shared:
-    error_box:
-      header: There were some errors (%{count})
   layouts:
     navigation:
       global:
@@ -75,7 +109,7 @@ en:
         users: Users
         target_params: Target Params
         ad_campaigns: Ad Campaigns
-        ad_sizes: Ad Sizes
+        ad_sizes: Ad Size Info
         logout: Logout
   session:
     new:
@@ -87,8 +121,26 @@ en:
     home:
       header: Home dashboard
       subheader: Check stats and overall health
+      modules:
+        ad_campaigns: Active Ad campaigns
+        today_requests: Requests (today)
+        today_clicks: Clicks (today)
   simple_form:
+    placeholders:
+      ad:
+        href: 'http://example.com'
     labels:
+      ad:
+        filename: Filename
+        status: Status
+        ad_size: Ad Size
+        href: HREF
+      ad_campaign:
+        name: Name
+        company: Company
+        starting_at: Starting at
+        ending_at: Ending_at
+        status: Status
       user:
         email: E-mail
         password: Password
@@ -96,6 +148,10 @@ en:
         role: Role
         locale: Locale
   enumerize:
+    ad_campaign:
+      status:
+        active: Active
+        inactive: Inactive
     user:
       role:
         user: Normal
@@ -112,16 +168,20 @@ en:
     users:
       created: User created
       destroyed: User destroyed
-      updated: User updated.
+      updated: User updated
     ads:
+      activated: Ad activated
+      inactivated: Ad inactivated
       created: Ad created
       destroyed: Ad destroyed
-      updated: Ad updated.
+      updated: Ad updated
     ad_campaigns:
-      created: Ad Campaign created
-      destroyed: Ad Campaign destroyed
-      updated: Ad Campaign updated.
+      activated: Ad Campaign %{name} (%{company}) activated
+      inactivated: Ad Campaign %{name} (%{company}) inactivated
+      created: Ad Campaign %{name} (%{company}) created
+      destroyed: Ad Campaign %{name} (%{company}) destroyed
+      updated: Ad Campaign %{name} (%{company}) updated
     target_params:
       created: Target Param created
       destroyed: Target Param destroyed
-      updated: Target Param updated.
+      updated: Target Param updated

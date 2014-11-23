@@ -4,3 +4,8 @@
     .content
       = t '.header'
       .sub.header = t '.subheader'
+
+  - @modules.each do |name, value|
+    .ui.segment.module
+      header = t ".modules.#{name}"
+      .value = value

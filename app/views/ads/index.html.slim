@@ -1,1 +1,37 @@
-= render 'shared/top_nav_for_record', count: @ads.count
+= render 'shared/top_nav_for_record', count: @ads.count, parent: @ad_campaign
+.container
+  table.ui.compact.table.segment.small
+    thead
+      tr
+        th.c = t '.th.id'
+        th.c = t '.th.status'
+        th.c = t '.th.thumbnail'
+        th.c = t '.th.href'
+        th.c = t '.th.count_requests'
+        th.c = t '.th.count_clicks'
+        th
+    tbody
+      - @ads.each do |ad|
+        tr
+          td.r = ad.id
+          td.c = render 'shared/status_icon', status: ad.status
+          td.l.image-thumbnail title=ad.status.text
+            = image_tag ad.filename.thumbnail.url
+            = ad.ad_size.format_for_index if ad.ad_size.present?
+          td.l = ad.href.present? ? ad.href : '----'
+          td.r = ad.count_requests
+          td.r = ad.count_clicks
+          td.actions
+            .ui.icon.buttons
+              - if ad.status.active?
+                = link_to inactivate_ad_campaign_ad_path(@ad_campaign, ad), class: "ui micro button", method: :post, data: {confirm: t("shared.are_you_sure")}, title: t('shared.actions.inactivate') do
+                  i.stop.icon
+              - else
+                = link_to activate_ad_campaign_ad_path(@ad_campaign, ad), class: "ui micro button", method: :post, data: {confirm: t("shared.are_you_sure")}, title: t('shared.actions.activate') do
+                  i.play.icon
+              = link_to ad_campaign_ad_path(@ad_campaign, ad), class: "ui micro button", title: t('shared.actions.show') do
+                i.unhide.icon
+              = link_to edit_ad_campaign_ad_path(@ad_campaign, ad), class: "ui micro button", title: t('shared.actions.edit') do
+                i.edit.icon
+              = link_to ad_campaign_ad_path(@ad_campaign, ad), method: :delete, data: {confirm: t("shared.are_you_sure")}, class: "negative ui micro button", title: t('shared.actions.destroy') do
+                i.trash.icon

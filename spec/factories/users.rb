@@ -8,13 +8,15 @@
 #  password_digest :string(255)
 #  role            :string(255)
 #  locale          :string(255)
+#  visible         :boolean          default(TRUE)
 #  created_at      :datetime
 #  updated_at      :datetime
 #
 # Indexes
 #
-#  us_ep  (email,password_digest)
-#  us_r   (role)
+#  us_ep  (visible,email,password_digest)
+#  us_r   (visible,role)
+#  us_v   (visible)
 #
 
 FactoryGirl.define do

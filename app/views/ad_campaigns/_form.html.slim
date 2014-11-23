@@ -1,0 +1,13 @@
+.container
+  = simple_form_for [@ad_campaign] do |f|
+    = render 'shared/error_box', model: @ad_campaign
+    .ui.form.segment
+      .two.fields
+        = f.input  :name
+        = f.input  :company
+      .two.fields
+        = f.input  :starting_at
+        = f.input  :ending_at
+      .ui.clearing.divider
+      .field
+        = f.button :submit, t('.submit')

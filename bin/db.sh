@@ -1,6 +1,7 @@
 #!/bin/sh
 echo Drop DB
-rake db:drop
+rm -f db/development.sqlite3
+rm -f db/test.sqlite3
 echo DEV Migrate
 rake db:migrate
 echo DEV Seed
