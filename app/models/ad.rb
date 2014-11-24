@@ -33,4 +33,8 @@ class Ad < VisibleModel
   belongs_to :ad_size
 
   mount_uploader :filename, FileUploader
+
+  def resource_url
+    self.filename.url
+  end
 end

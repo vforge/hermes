@@ -237,3 +237,6 @@ gem 'non-stupid-digest-assets'
 
 # Fix for https://github.com/tzinfo/tzinfo/wiki/Resolving-TZInfo::DataSourceNotFound-Errors
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
+# https://github.com/nesquena/rabl
+gem 'rabl'

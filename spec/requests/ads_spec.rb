@@ -4,39 +4,40 @@ RSpec.describe "Ads", type: :request do
   before(:each) do
     login_user
 
+    @ad_campaign = FactoryGirl.create(:ad_campaign)
     @ad = FactoryGirl.create(:ad)
   end
 
-  describe "GET ads_path" do
+  describe "GET ad_campaign_ads_path" do
     it "responds successfully with an HTTP 200 status code" do
-      get ads_path
+      get ad_campaign_ads_path(@ad_campaign)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET ad_path" do
+  describe "GET ad_campaign_ad_path" do
     it "responds successfully with an HTTP 200 status code" do
-      get ad_path(id: 1)
+      get ad_campaign_ad_path(@ad_campaign, @ad)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET new_ad_path" do
+  describe "GET new_ad_campaign_ad_path" do
     it "responds successfully with an HTTP 200 status code" do
-      get new_ad_path
+      get new_ad_campaign_ad_path(@ad_campaign)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET edit_ad_path" do
+  describe "GET edit_ad_campaign_ad_path" do
     it "responds successfully with an HTTP 200 status code" do
-      get edit_ad_path(id: 1)
+      get edit_ad_campaign_ad_path(@ad_campaign, @ad)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)

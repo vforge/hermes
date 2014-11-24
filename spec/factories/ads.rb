@@ -27,7 +27,9 @@ FactoryGirl.define do
   factory :ad do
     ad_campaign
 
-    filename    { Faker::Avatar.image }
+    filename    { File.open Faker::Avatar.image }
+
+    href        { Faker::Internet.url }
     status      :active
 
     trait :inactive do
