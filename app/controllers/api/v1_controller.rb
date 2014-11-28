@@ -1,6 +1,6 @@
-class API::V1::ContentController < ActionController::Base
+class API::V1Controller < ActionController::Base
   def get
-    @object = Ad.with_status(:active).order_by_rand.first
+    @object = Ad.search_by_params(params).first
     @object.increment!(:count_requests)
   end
 

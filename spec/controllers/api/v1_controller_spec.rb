@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApiController, :type => :controller do
+RSpec.describe API::V1Controller, type: :controller do
 
   describe "GET get" do
     it "returns http success" do

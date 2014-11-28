@@ -24,6 +24,8 @@
 #
 
 class Ad < VisibleModel
+  scope :randomize, -> { with_status(:active).order_by_rand }
+
   enumerize :status, in: [:active, :inactive], scope: true, default: :active
 
   validates :href,        presence: true
@@ -36,5 +38,31 @@ class Ad < VisibleModel
 
   def resource_url
     self.filename.url
+  end
+
+  def self.search params
+    results = Ad.randomize
+
+    if params[:mw].present?
+      results = results.includes(:ad_size).where('ad_sizes.width >= ?', params[:mw]).references(:ad_size)
+    end
+
+    if params[:xw].present?
+      results = results.includes(:ad_size).where('ad_sizes.width <= ?', params[:xw]).references(:ad_size)
+    end
+
+    if params[:mh].present?
+      results = results.includes(:ad_size).where('ad_sizes.height >= ?', params[:mh]).references(:ad_size)
+    end
+
+    if params[:xh].present?
+      results = results.includes(:ad_size).where('ad_sizes.height <= ?', params[:xh]).references(:ad_size)
+    end
+
+    if params[:n].present?
+      results = results.includes(:ad_size).where('ad_sizes.name = ?', params[:n]).references(:ad_size)
+    end
+
+    results
   end
 end

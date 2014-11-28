@@ -1,10 +1,8 @@
 Mercury::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      get 'get',       to: 'content#get'
-      get 'click/:id', to: 'content#click'
-    end
+    get 'v1/get',       to: 'v1#get'
+    get 'v1/click/:id', to: 'v1#click'
   end
 
   concern :activated do
