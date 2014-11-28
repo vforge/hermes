@@ -1,6 +1,6 @@
 class API::V1Controller < ActionController::Base
   def get
-    @object = Ad.search_by_params(params).first
+    @object = Ad.search(params).first
     @object.increment!(:count_requests)
   end
 

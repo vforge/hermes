@@ -125,6 +125,8 @@ en:
         ad_campaigns: Active Ad campaigns
         today_requests: Requests (today)
         today_clicks: Clicks (today)
+        total_requests: Requests (total)
+        total_clicks: Clicks (total)
   simple_form:
     placeholders:
       ad:
