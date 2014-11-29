@@ -19,7 +19,7 @@ nav.top-bar [data-topbar]
       - if @current_user.role.admin?
         li = link_to admin_users_path, class: 'item' do
           = t '.users'
-        li = link_to admin_target_params_path, class: 'item' do
-          = t '.target_params'
+        /li = link_to admin_target_params_path, class: 'item' do
+        /  = t '.target_params'
       li = link_to ad_sizes_path, class: 'item' do
         = t '.ad_sizes'
