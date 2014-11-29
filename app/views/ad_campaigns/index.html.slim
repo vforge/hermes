@@ -1,53 +1,51 @@
 = render 'shared/top_nav_for_record', count: @ad_campaigns.count
-.container
-  table.ui.compact.table.segment.small
-    thead
+table.column
+  thead
+    tr
+      th.r = t '.th.id'
+      th.c = t '.th.status'
+      th.c = t '.th.name'
+      th.c = t '.th.company'
+      th.c = t '.th.from_to'
+      th.c = t '.th.ads'
+      th.r = t '.th.count_clicks'
+      th.r = t '.th.count_requests'
+      /th.c = t '.th.target'
+      th
+  tbody
+    - @ad_campaigns.each do |ad_campaign|
       tr
-        th.c = t '.th.id'
-        th.c = t '.th.status'
-        th.c = t '.th.name'
-        th.c = t '.th.company'
-        th.c = t '.th.from_to'
-        th.c = t '.th.ads'
-        th.c = t '.th.count_clicks'
-        th.c = t '.th.count_requests'
-        /th.c = t '.th.target'
-        th
-    tbody
-      - @ad_campaigns.each do |ad_campaign|
-        tr
-          td.r = ad_campaign.id
-          td.c = render 'shared/status_icon', status: ad_campaign.status
-          td.c = ad_campaign.name
-          td.c = ad_campaign.company
-          td.c
-            = ad_campaign.starting_at.to_formatted_s(:db)
-            br
-            = ad_campaign.ending_at.to_formatted_s(:db)
-          td.c
-            - active = ad_campaign.ads.with_status(:active).count
-            - inactive = ad_campaign.ads.with_status(:inactive).count
-            .ui.icon.buttonsactive
-              = link_to ad_campaign_ads_path(ad_campaign), class: "ui micro button", title: t('shared.actions.details') do
-                i.photo.icon
-                = active
-                - if inactive > 0
-                  |&nbsp;+
-                  = inactive
-          td.r = ad_campaign.count_clicks
-          td.r = ad_campaign.count_requests
-          /td.c = ad_campaign.target.inspect
-          td.actions
-            .ui.icon.buttons
-              - if ad_campaign.status.active?
-                = link_to inactivate_ad_campaign_path(ad_campaign), class: "ui micro button", method: :post, data: {confirm: t("shared.are_you_sure")}, title: t('shared.actions.inactivate') do
-                  i.pause.icon
-              - else
-                = link_to activate_ad_campaign_path(ad_campaign), class: "ui micro button", method: :post, data: {confirm: t("shared.are_you_sure")}, title: t('shared.actions.activate') do
-                  i.play.icon
-              = link_to ad_campaign_path(ad_campaign), class: "ui micro button", title: t('shared.actions.show') do
-                i.unhide.icon
-              = link_to edit_ad_campaign_path(ad_campaign), class: "ui micro button", title: t('shared.actions.edit') do
-                i.edit.icon
-              = link_to ad_campaign_path(ad_campaign), method: :delete, data: {confirm: t("shared.are_you_sure")}, class: "negative ui micro button", title: t('shared.actions.destroy') do
-                i.trash.icon
+        td.r = ad_campaign.id
+        td.c = render 'shared/status_icon', status: ad_campaign.status
+        td.c = ad_campaign.name
+        td.c = ad_campaign.company
+        td.c
+          = ad_campaign.starting_at.to_formatted_s(:db)
+          br
+          = ad_campaign.ending_at.to_formatted_s(:db)
+        td.c
+          - active = ad_campaign.ads.with_status(:active).count
+          - inactive = ad_campaign.ads.with_status(:inactive).count
+          = link_to ad_campaign_ads_path(ad_campaign), class: "button inline", title: t('shared.actions.details') do
+            i.fa.fa-file-image-o.fa-fw
+            = active
+            - if inactive > 0
+              |&nbsp;+
+              = inactive
+        td.r = ad_campaign.count_clicks
+        td.r = ad_campaign.count_requests
+        /td.c = ad_campaign.target.inspect
+        td.actions
+          ul.button-group
+            - if ad_campaign.status.active?
+              li = link_to inactivate_ad_campaign_path(ad_campaign), class: "button", method: :post, data: {confirm: t("shared.are_you_sure")}, title: t('shared.actions.inactivate') do
+                i.fa.fa-pause.fa-fw
+            - else
+              li = link_to activate_ad_campaign_path(ad_campaign), class: "button", method: :post, data: {confirm: t("shared.are_you_sure")}, title: t('shared.actions.activate') do
+                i.fa.fa-play.fa-fw
+            li = link_to ad_campaign_path(ad_campaign), class: "button", title: t('shared.actions.show') do
+              i.fa.fa-eye.fa-fw
+            li = link_to edit_ad_campaign_path(ad_campaign), class: "button", title: t('shared.actions.edit') do
+              i.fa.fa-edit.fa-fw
+            li = link_to ad_campaign_path(ad_campaign), method: :delete, data: {confirm: t("shared.are_you_sure")}, class: "negative button", title: t('shared.actions.destroy') do
+              i.fa.fa-trash.fa-fw

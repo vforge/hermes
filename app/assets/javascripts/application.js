@@ -1,12 +1,13 @@
-//= require jquery
+//= require vendor/jquery.min
 //= require jquery_ujs
 //= require turbolinks
-//= require semantic
+//= require vendor/foundation.min
+//= require vendor/foundation-datepicker
 
 (function ($) {
   'use strict';
 
   $(function () {
-    $('.ui.selection.dropdown').dropdown();
+    $(document).foundation();
   } );
 })(jQuery);

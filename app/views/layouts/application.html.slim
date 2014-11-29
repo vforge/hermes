@@ -16,6 +16,6 @@ html
       = render 'layouts/navigation/global'
     = render 'layouts/elements/flash_messages'
     = yield :above_content
-    #application
-      = yield
+    .row#application = yield
+    /= render 'layouts/navigation/footer'
     = render 'layouts/elements/fonts'

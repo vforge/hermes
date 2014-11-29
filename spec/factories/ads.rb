@@ -27,7 +27,7 @@ FactoryGirl.define do
   factory :ad do
     ad_campaign
 
-    filename    { File.open Faker::Avatar.image }
+    filename   Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/empty.png')))
 
     href        { Faker::Internet.url }
     status      :active

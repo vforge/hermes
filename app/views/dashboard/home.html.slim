@@ -1,11 +1,11 @@
-.container
-  header.ui.header
-    i.dashboard.icon
-    .content
-      = t '.header'
-      .sub.header = t '.subheader'
-
-  - @modules.each do |name, value|
-    .ui.segment.module
-      header = t ".modules.#{name}"
-      .value = value
+.row
+  .column
+    h1 = t '.header'
+    h2.subheader = t '.subheader'
+.row
+  ul.small-block-grid-2.medium-block-grid-4.large-block-grid-6
+    - @modules.each do |name, value|
+      li
+        .module
+          header = t ".modules.#{name}"
+          .value = value
