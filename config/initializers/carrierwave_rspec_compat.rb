@@ -6,10 +6,10 @@ if Rails.env.test? || Rails.env.cucumber?
   end
 
   # make sure our uploader is auto-loaded
-
-  if ActiveRecord::Base.connection.table_exists? 'images'
-    Images
-  end
+  # if ActiveRecord::Base.connection.table_exists? 'ads'
+  #   Ads
+  # end
+  FileUploader
 
   # use different dirs when testing
   CarrierWave::Uploader::Base.descendants.each do |klass|

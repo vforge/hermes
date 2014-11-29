@@ -1,26 +1,25 @@
 = render 'shared/top_nav_for_record', count: @users.count, prefix: 'admin'
-.container
-  table.ui.compact.table.segment
-    thead
+table.column
+  thead
+    tr
+      th.c = t '.th.id'
+      th.c = t '.th.email'
+      th.c = t '.th.role'
+      th.c = t '.th.locale'
+      th
+  tbody
+    - @users.each do |user|
       tr
-        th.c = t '.th.id'
-        th.c = t '.th.email'
-        th.c = t '.th.role'
-        th.c = t '.th.locale'
-        th
-    tbody
-      - @users.each do |user|
-        tr
-          td.r = user.id
-          td.c = user.email
-          td.c = user.role.text
-          td.c = user.locale.text
-          td.actions
-            .ui.icon.buttons
-              = link_to admin_user_path(user), class: "ui micro button", title: t('shared.actions.show') do
-                i.unhide.icon
-              - if (@current_user.role.admin? or user.role.user?) and not user == @current_user
-                = link_to edit_admin_user_path(user), class: "ui micro button", title: t('shared.actions.edit') do
-                  i.edit.icon
-                = link_to admin_user_path(user), method: :delete, data: {confirm: t("shared.are_you_sure")}, class: "negative ui micro button", title: t('shared.actions.destroy') do
-                  i.trash.icon
+        td.r = user.id
+        td.c = user.email
+        td.c = user.role.text
+        td.c = user.locale.text
+        td.actions
+          ul.button-group
+            li = link_to admin_user_path(user), class: "button", title: t('shared.actions.show') do
+              i.fa.fa-eye.fa-fw
+            - if (@current_user.role.admin? or user.role.user?) and not user == @current_user
+              li = link_to edit_admin_user_path(user), class: "button", title: t('shared.actions.edit') do
+                i.fa.fa-edit.fa-fw
+              li = link_to admin_user_path(user), method: :delete, data: {confirm: t("shared.are_you_sure")}, class: "negative button", title: t('shared.actions.destroy') do
+                i.fa.fa-trash.fa-fw

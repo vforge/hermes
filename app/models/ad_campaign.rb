@@ -33,10 +33,10 @@ class AdCampaign < VisibleModel
   has_many  :ads
 
   def count_clicks
-    self.ads.sum(:count_clicks)
+    ads.sum(:count_clicks)
   end
 
   def count_requests
-    self.ads.sum(:count_requests)
+    ads.sum(:count_requests)
   end
 end

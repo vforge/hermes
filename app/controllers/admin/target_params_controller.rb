@@ -2,7 +2,7 @@ class Admin::TargetParamsController < Admin::BaseController
   before_action :set_target_param, only: [:show, :edit, :update, :destroy]
 
   expose :target_param,     attributes: :target_param_params
-  params_for :target_param#, :email, :password, :password_confirmation, :locale
+  params_for :target_param # , :email, :password, :password_confirmation, :locale
 
   def index
     @target_params = TargetParam.all

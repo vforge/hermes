@@ -1,21 +1,20 @@
 = render 'shared/top_nav_for_record', count: @ad_sizes.count, readonly: true
-.container
-  table.ui.compact.table.segment
-    thead
+table.column
+  thead
+    tr
+      th.c = t '.th.id'
+      th.c = t '.th.name'
+      th.c = t '.th.classification'
+      th.c = t '.th.size'
+      th
+  tbody
+    - @ad_sizes.each do |ad_size|
       tr
-        th.c = t '.th.id'
-        th.c = t '.th.name'
-        th.c = t '.th.classification'
-        th.c = t '.th.size'
-        th
-    tbody
-      - @ad_sizes.each do |ad_size|
-        tr
-          td.r = ad_size.id
-          td.c = ad_size.name
-          td.c = ad_size.classification.text
-          td.c = ad_size.size
-          td.actions
-            .ui.icon.buttons
-              = link_to ad_size_path(ad_size), class: "ui micro button", title: t('shared.actions.show') do
-                i.unhide.icon
+        td.r = ad_size.id
+        td.c = ad_size.name
+        td.c = ad_size.classification.text
+        td.c = ad_size.size
+        td.actions
+          ul.button-group
+            li = link_to ad_size_path(ad_size), class: "button", title: t('shared.actions.show') do
+              i.fa.fa-eye.fa-fw

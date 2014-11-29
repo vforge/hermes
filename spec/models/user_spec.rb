@@ -24,17 +24,17 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   it { is_expected.to enumerize(:role).in(:user, :admin) }
 
-  it "has a valid factory" do
+  it 'has a valid factory' do
     expect(FactoryGirl.build_stubbed(:user)).to         be_valid
     expect(FactoryGirl.build_stubbed(:user, :admin)).to be_valid
   end
 
-  it "can be instantiated" do
-    expect(FactoryGirl.build_stubbed(:user)).to         be_an_instance_of(User)
-    expect(FactoryGirl.build_stubbed(:user, :admin)).to be_an_instance_of(User)
+  it 'can be instantiated' do
+    expect(FactoryGirl.build_stubbed(:user)).to         be_an_instance_of(described_class)
+    expect(FactoryGirl.build_stubbed(:user, :admin)).to be_an_instance_of(described_class)
   end
   #
-  it "is invalid with invalid email" do
+  it 'is invalid with invalid email' do
     expect(FactoryGirl.build_stubbed(:user, email: nil)).to be_invalid
     expect(FactoryGirl.build_stubbed(:user, email: '')).to be_invalid
 

@@ -1,15 +1,16 @@
-.container
-  = simple_form_for [@ad_campaign, @ad] do |f|
-    = render 'shared/error_box', model: @ad
-    .ui.form.segment
-      .two.fields
-        = f.input :filename
-        = f.association :ad_size, label_method: :format_for_select
-      .two.fields
-        = f.input :href
-        .field
-          - if @ad.filename.present?
-            = image_tag @ad.filename.thumbnail.url
-      .ui.clearing.divider
-      .field
-        = f.button :submit, t('.submit')
+= simple_form_for [@ad_campaign, @ad] do |f|
+  = render 'shared/error_box', model: @ad
+  .row
+    .small-6.columns
+      = f.input :filename
+    .small-6.columns
+      = f.association :ad_size, label_method: :format_for_select
+  .row
+    .small-6.columns
+      = f.input :href
+    .small-6.columns
+      - if @ad.filename.present?
+        = image_tag @ad.filename.thumbnail.url
+  .row
+    .column
+      = f.button :submit, t('.submit')

@@ -8,7 +8,7 @@ class FileUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "/assets/empty.png"
+    '/assets/empty.png'
   end
 
   version :thumbnail do

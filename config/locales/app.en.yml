@@ -1,8 +1,11 @@
 en:
+  app:
+    name: Mercury
+    copyright: "&copy;2014&nbsp;Mercury"
   icons:
     users: user
     ads: photo
-    ad_sizes: fullscreen
+    ad_sizes: arrows
     ad_campaigns: money
     target_params: screenshot
   shared:

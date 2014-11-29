@@ -21,18 +21,18 @@ class AdSize < ActiveRecord::Base
   validates :height,          presence: true, numericality: { only_integer: true, greater_than: 1 }
 
   def size
-    "#{self.width}x#{self.height}"
+    "#{width}x#{height}"
   end
 
   def format_for_select
-    primary_indicator = self.classification.primary? ? '*' : ''
+    primary_indicator = classification.primary? ? '*' : ''
 
-    "#{self.name}#{primary_indicator} (#{self.size})"
+    "#{name}#{primary_indicator} (#{size})"
   end
 
   def format_for_index
-    primary_indicator = self.classification.primary? ? '*' : ''
+    primary_indicator = classification.primary? ? '*' : ''
 
-    "#{self.size}<br>#{self.name}#{primary_indicator}".html_safe
+    "#{size}<br>#{name}#{primary_indicator}".html_safe
   end
 end

@@ -37,31 +37,17 @@ class Ad < VisibleModel
   mount_uploader :filename, FileUploader
 
   def resource_url
-    self.filename.url
+    filename.url
   end
 
-  def self.search params
+  def self.search(params)
     results = Ad.randomize
 
-    if params[:mw].present?
-      results = results.includes(:ad_size).where('ad_sizes.width >= ?', params[:mw]).references(:ad_size)
-    end
-
-    if params[:xw].present?
-      results = results.includes(:ad_size).where('ad_sizes.width <= ?', params[:xw]).references(:ad_size)
-    end
-
-    if params[:mh].present?
-      results = results.includes(:ad_size).where('ad_sizes.height >= ?', params[:mh]).references(:ad_size)
-    end
-
-    if params[:xh].present?
-      results = results.includes(:ad_size).where('ad_sizes.height <= ?', params[:xh]).references(:ad_size)
-    end
-
-    if params[:n].present?
-      results = results.includes(:ad_size).where('ad_sizes.name = ?', params[:n]).references(:ad_size)
-    end
+    results = results.includes(:ad_size).where('ad_sizes.width >= ?', params[:mw]).references(:ad_size) if params[:mw].present?
+    results = results.includes(:ad_size).where('ad_sizes.width <= ?', params[:xw]).references(:ad_size) if params[:xw].present?
+    results = results.includes(:ad_size).where('ad_sizes.height >= ?', params[:mh]).references(:ad_size) if params[:mh].present?
+    results = results.includes(:ad_size).where('ad_sizes.height <= ?', params[:xh]).references(:ad_size) if params[:xh].present?
+    results = results.includes(:ad_size).where('ad_sizes.name = ?', params[:n]).references(:ad_size) if params[:n].present?
 
     results
   end

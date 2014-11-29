@@ -1,0 +1,105 @@
+@mixin small-font
+  font-size: .9em
+
+@mixin x-small-font
+  font-size: .8em
+
+@mixin large-font
+  font-size: 1.1em
+
+@mixin x-large-font
+  font-size: 1.3em
+
+@mixin xx-large-font
+  font-size: 1.5em
+
+@mixin huge-font
+  font-size: 2em
+
+@mixin quiet
+  opacity: .5
+
+@mixin centered
+  text-align: center
+
+.small
+  @include small-font
+
+.x-small
+  @include x-small-font
+
+.large
+  @include large-font
+
+.quiet
+  @include quiet
+
+.centered
+  @include centered
+
+.right-align
+  text-align: right
+
+#recaptcha_logo
+  display: none
+
+//.wf-opensans-i4-active
+//.wf-opensans-i7-active
+//.wf-opensans-n7-active
+html.wf-opensans-n4-active body
+  font-family: "Open Sans", sans-serif
+
+.flash-messages
+  margin: 1em 0 -1em
+
+// fixes for foundation
+
+.timeago
+  @include small-font
+  opacity: .9
+
+select[multiple]
+  height: auto
+
+.button.inline,
+.panel.inline
+  margin: 0
+
+.button.small.square
+  padding: .5em
+
+// mixins
+@mixin border-3d
+  padding: .75em
+  background: #fff
+  border: 1px solid
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5
+
+@mixin light-border
+  border-bottom: 1px solid $border-color
+
+@mixin light-border-top
+  margin-top: .5em
+  padding-top: .5em
+  border-top: 1px solid $border-color
+
+@mixin light-border-bottom
+  margin-bottom: .5em
+  padding-bottom: .5em
+  border-bottom: 1px solid $border-color
+
+td.c, th.c
+  text-align: center !important
+
+td.r, th.r, td.actions
+  text-align: right !important
+
+td.actions ul.button-group
+  float: right !important
+
+  .button
+    margin: 0 !important
+
+select.datetime
+  width: auto
+  padding-right: 1.5em
