@@ -28,11 +28,11 @@ require 'rails_helper'
 RSpec.describe Ad, type: :model do
   it { is_expected.to enumerize(:status).in(:active, :inactive) }
 
-  it "has a valid factory" do
+  it 'has a valid factory' do
     expect(FactoryGirl.build_stubbed(:ad)).to be_valid
   end
 
-  it "can be instantiated" do
-    expect(FactoryGirl.build_stubbed(:ad)).to be_an_instance_of(Ad)
+  it 'can be instantiated' do
+    expect(FactoryGirl.build_stubbed(:ad)).to be_an_instance_of(described_class)
   end
 end

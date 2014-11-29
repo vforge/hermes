@@ -10,6 +10,9 @@ AllCops:
     - 'lib/**/*'
     - 'script/**/*'
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+	
 Style/Encoding:
   EnforcedStyle: when_needed
 
@@ -26,4 +29,7 @@ Style/Documentation:
   Enabled: false
 
 RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/FilePath:
   Enabled: false

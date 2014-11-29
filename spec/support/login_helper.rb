@@ -16,8 +16,6 @@ module LoginHelper
   end
 
   def logout
-    if current_user.present?
-      get logout_path
-    end
+    get logout_path if current_user.present?
   end
 end

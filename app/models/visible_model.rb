@@ -5,6 +5,6 @@ class VisibleModel < ActiveRecord::Base
 
   def destroy
     self.visible = false
-    self.quiet_save
+    quiet_save
   end
 end
