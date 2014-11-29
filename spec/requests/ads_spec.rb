@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Ads', type: :request do
-  let(:@ad_campaign) { FactoryGirl.create(:ad_campaign) }
-  let(:@ad) { FactoryGirl.create(:ad) }
+  let(:ad) { FactoryGirl.create(:ad) }
 
   before(:each) do
     login_user
@@ -10,7 +9,7 @@ RSpec.describe 'Ads', type: :request do
 
   describe 'GET ad_campaign_ads_path' do
     it 'responds successfully with an HTTP 200 status code' do
-      get ad_campaign_ads_path(ad_campaign)
+      get ad_campaign_ads_path(ad.ad_campaign)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
@@ -19,7 +18,7 @@ RSpec.describe 'Ads', type: :request do
 
   describe 'GET ad_campaign_ad_path' do
     it 'responds successfully with an HTTP 200 status code' do
-      get ad_campaign_ad_path(ad_campaign, ad)
+      get ad_campaign_ad_path(ad.ad_campaign, ad)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
@@ -28,7 +27,7 @@ RSpec.describe 'Ads', type: :request do
 
   describe 'GET new_ad_campaign_ad_path' do
     it 'responds successfully with an HTTP 200 status code' do
-      get new_ad_campaign_ad_path(ad_campaign)
+      get new_ad_campaign_ad_path(ad.ad_campaign)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
@@ -37,7 +36,7 @@ RSpec.describe 'Ads', type: :request do
 
   describe 'GET edit_ad_campaign_ad_path' do
     it 'responds successfully with an HTTP 200 status code' do
-      get edit_ad_campaign_ad_path(ad_campaign, ad)
+      get edit_ad_campaign_ad_path(ad.ad_campaign, ad)
 
       expect(response).to be_success
       expect(response).to have_http_status(:success)
