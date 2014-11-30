@@ -7,9 +7,9 @@ class SessionController < ApplicationController
   end
 
   def create
-    user = User.where(email: params[:email].chomp).first
+    user = User.where(email: params[:email].strip).first
 
-    if user && user.authenticate(params[:password].chomp)
+    if user && user.authenticate(params[:password].strip)
       session[:user_id] = user.id
       redirect_to dashboard_path, notice: t('messages.session.logged_in', user: user.email)
     else
