@@ -14,13 +14,5 @@
       .column.centered
         input.submit.button type="submit" value=t('.submit')
     .row
-      .small-6.columns.centered
-        - class_name = 'flag'
-        - class_name += ' active' if @current_locale == :en
-        = link_to params.merge(locale: :en) do
-          = image_tag 'flags/en.png', alt: t('enumerize.user.locale.en'), class: class_name
-      .small-6.columns.centered
-        - class_name = 'flag'
-        - class_name += ' active' if @current_locale == :pl
-        = link_to params.merge(locale: :pl) do
-          = image_tag 'flags/pl.png', alt: t('enumerize.user.locale.en'), class: class_name
+      .small-6.columns.centered = render 'locale_flag', locale: :en
+      .small-6.columns.centered = render 'locale_flag', locale: :pl
