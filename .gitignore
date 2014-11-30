@@ -30,3 +30,4 @@ coverage
 Gemfile.lock
 pickle-email-*.html
 rerun.txt
+xconfig/version.rb
