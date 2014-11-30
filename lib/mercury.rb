@@ -3,13 +3,13 @@ module Mercury
     return $git_version if $git_version
 
     # load the version stamped by the "build:stamp" task
-    f = Rails.root.to_s + "/config/version"
+    f = Rails.root.to_s + '/config/version'
     require f if File.exists?("#{f}.rb")
 
     begin
       $git_version ||= `git describe --always`.strip
     rescue
-      $git_version = "unknown"
+      $git_version = 'unknown'
     end
   end
 
