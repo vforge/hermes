@@ -1,4 +1,8 @@
+require 'git_version'
+
 class SessionController < ApplicationController
+  before_action :load_version, only: [:new, :create]
+
   def new
   end
 
@@ -16,6 +20,12 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to join_path, notice: t('messages.session.logged_out')
+    redirect_to join_path # , notice: t('messages.session.logged_out')
+  end
+
+  private
+
+  def load_version
+    @version = git_version
   end
 end
