@@ -1,0 +1,192 @@
+pl:
+  app:
+    name: Mercury
+    copyright: "&copy;2014&nbsp;Mercury"
+  icons:
+    users: user
+    ads: photo
+    ad_sizes: arrows
+    ad_campaigns: money
+    target_params: screenshot
+  shared:
+    error_box:
+      header: Wystąpiły błędy (%{count})
+    actions:
+      back: Wróć
+      create: Utwórz
+      edit: Edytuj
+      destroy: Kasuj
+      show: Pokaż
+      inactivate: Zdezaktywuj
+      activate: Aktywuj
+      details: Szczegóły
+    labels:
+      count: "&nbsp;(%{count})&nbsp;"
+    are_you_sure: Czy NA PEWNO?
+    th:
+      property: Pole
+      value: Wartość
+  ad_sizes:
+    show:
+      header: Szczegóły rozmiarów reklam
+    index:
+      header: Rozmiary reklam (%{count})
+      th:
+        id: ID
+        name: Nazwa
+        classification: Klasyfikacja
+        size: Rozmiar
+  ads:
+    form:
+      submit: Zapisz
+    new:
+      header: "Ad Campaign #%{parent_id} | New Ad"
+    show:
+      header: "Ad Campaign #%{parent_id} | Show Ad"
+    edit:
+      header: "Ad Campaign #%{parent_id} | Edit Ad"
+    index:
+      header: "Ad Campaign #%{parent_id} | Ads (%{count})"
+      th:
+        id: ID
+        status: Status
+        thumbnail: Miniaturka
+        href: HREF
+        count_clicks: "#Kliknięć"
+        count_requests: "#Zapytań"
+  ad_campaigns:
+    form:
+      submit: Zapisz
+    new:
+      header: Nowa kampania
+    show:
+      header: Szczegóły kampanii
+    edit:
+      header: Edycja kampanii
+    index:
+      header: Kampanie (%{count})
+      th:
+        id: ID
+        name: Nazwa
+        company: Firma
+        from_to: Od - do
+        starting_at: Początek
+        ending_at: Koniec
+        target: targetowanie
+        status: Status
+        ads: Reklam
+        count_clicks: "&sum;&nbsp;#Kliknięć"
+        count_requests: "&sum;&nbsp;#Zapytań"
+  admin:
+    target_params:
+      form:
+        submit: Zapisz
+      new:
+        header: Nowe targetowanie
+      show:
+        header: Szczegóły targetowania
+      edit:
+        header: Edycja targetowania
+      index:
+        header: Parametry targetowania (%{count})
+    users:
+      form:
+        submit: Zapisz
+      new:
+        header: Nowy użytkownik
+      show:
+        header: Szczegóły użytkownika
+      edit:
+        header: Edycja użytkownika
+      index:
+        header:  Użytkownicy (%{count})
+        th:
+          id: ID
+          email: E-mail
+          role: Rola
+          locale: Język aplikacji
+  layouts:
+    navigation:
+      global:
+        dashboard: Dom
+        users: Użytkownicy
+        target_params: Parametry targetowania
+        ad_campaigns: Kampanie
+        ad_sizes: Rozmiar reklam
+        logout: Wylogowanie
+  session:
+    new:
+      header: Zalogowanie
+      email: E-Mail
+      password: Hasło
+      submit: Zaloguj się
+  dashboard:
+    home:
+      header: Panel startowy
+      subheader: Statystyki
+      modules:
+        ad_campaigns: Aktywnych kampanii
+        today_requests: Zapytań (dziś)
+        today_clicks: Kliknięć (dziś)
+        total_requests: Zapytań (suma)
+        total_clicks: Kliknięć (suma)
+  simple_form:
+    placeholders:
+      ad:
+        href: 'http://przyklad.com'
+    labels:
+      ad:
+        filename: Plik
+        status: Status
+        ad_size: Rozmiar reklamy
+        href: HREF
+      ad_campaign:
+        name: Nazwa
+        company: Firma
+        starting_at: Start
+        ending_at: Koniec
+        status: Status
+      user:
+        email: E-mail
+        password: Hasło
+        password_confirmation: Potwierdzenie hasła
+        role: Rola
+        locale: Język aplikacji
+  enumerize:
+    ad_campaign:
+      status:
+        active: Aktywna
+        inactive: Nieaktywna
+    user:
+      role:
+        user: Zwykły
+        admin: Admin
+      locale:
+        en: English
+        pl: Polski
+  messages:
+    unauthorized: Akcja niedozwolona
+    session:
+      logged_in: Zalogowano, <strong>%{user}</strong>
+      logged_out: Wylogowano
+      error: Zła nazwa użytkownika lub hasło
+    users:
+      created: Użytkownik utworzony
+      destroyed: Użytkownik skasowany
+      updated: Użytkownik zaktualizowany
+    ads:
+      activated: Reklama aktywowana
+      inactivated: Reklama zdezaktywowana
+      created: Reklama utworzona
+      destroyed: Reklama skasowana
+      updated: Reklama zaktualizowana
+    ad_campaigns:
+      activated: Kampania %{name} (%{company}) aktywowana
+      inactivated: Kampania %{name} (%{company}) zdezaktywowana
+      created: Kampania %{name} (%{company}) utworzona
+      destroyed: Kampania %{name} (%{company}) skasowana
+      updated: Kampania %{name} (%{company}) zaktualizowana
+    target_params:
+      created: Parametr targetowania utworzony
+      destroyed: Parametr targetowania skasowany
+      updated: Parametr targetowania zaktualizowany

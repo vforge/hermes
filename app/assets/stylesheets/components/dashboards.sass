@@ -10,3 +10,29 @@
 
     .value
       @include huge-font
+
+.session-new
+  #application
+    margin: 0
+    text-align: center
+    max-width: 100%
+
+    &:before
+      content: ''
+      display: inline-block
+      height: 100%
+      vertical-align: middle
+      margin-right: -0.25em
+
+    .login-panel
+      display: inline-block
+      vertical-align: middle
+      width: 300px
+      text-align: left
+
+    .flag
+      border: 3px solid $border-color
+      opacity: .8
+      &.active
+        border-color: $main-color
+        opacity: 1

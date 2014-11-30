@@ -15,6 +15,9 @@ class ApplicationController < ActionController::Base
     @action_name     = action_name
 
     @body_classes = "#{@controller_name}--common #{@controller_name}-#{@action_name}"
+
+    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+    @current_locale = session[:locale] = I18n.locale
   end
 
   def current_user

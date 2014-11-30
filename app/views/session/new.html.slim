@@ -1,14 +1,26 @@
-.container
-  header.ui.header
-    = t '.header'
-
-  section.ui.segment
-    = form_tag do
-      .ui.form
-        .field
-          label for="email" = t '.email'
-          input type="text" name="email" id="email"
-        .field
-          label for="password" = t '.password'
-          input type="password" name="password" id="password"
-        input.ui.blue.submit.button type="submit" value=t('.submit')
+.login-panel
+  = form_tag do
+    .row
+      .small-4.columns
+        label for="email" = t '.email'
+      .small-8.columns
+        input type="text" name="email" id="email"
+    .row
+      .small-4.columns
+        label for="password" = t '.password'
+      .small-8.columns
+        input type="password" name="password" id="password"
+    .row
+      .column.centered
+        input.submit.button type="submit" value=t('.submit')
+    .row
+      .small-6.columns.centered
+        - class_name = 'flag'
+        - class_name += ' active' if @current_locale == :en
+        = link_to params.merge(locale: :en) do
+          = image_tag 'flags/en.png', alt: t('enumerize.user.locale.en'), class: class_name
+      .small-6.columns.centered
+        - class_name = 'flag'
+        - class_name += ' active' if @current_locale == :pl
+        = link_to params.merge(locale: :pl) do
+          = image_tag 'flags/pl.png', alt: t('enumerize.user.locale.en'), class: class_name
