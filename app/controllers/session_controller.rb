@@ -1,4 +1,4 @@
-require 'git_version'
+require 'mercury'
 
 class SessionController < ApplicationController
   before_action :load_version, only: [:new, :create]
@@ -26,6 +26,6 @@ class SessionController < ApplicationController
   private
 
   def load_version
-    @version = git_version
+    @version = Mercury.git_version
   end
 end
