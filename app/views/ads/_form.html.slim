@@ -9,7 +9,7 @@
     .small-6.columns
       = f.input :href
     .small-6.columns
-      - if @ad.filename.present?
+      - if @ad.filename?
         = image_tag @ad.filename.thumbnail.url
   .row
     .column

@@ -6,13 +6,13 @@ class AdCampaignsController < BaseController
 
   def activate
     @ad_campaign.status = :active
-    @ad_campaign.save
+    @ad_campaign.save!
     redirect_to ad_campaigns_path, notice: t('messages.ad_campaigns.activated', name: @ad_campaign.name, company: @ad_campaign.company)
   end
 
   def inactivate
     @ad_campaign.status = :inactive
-    @ad_campaign.save
+    @ad_campaign.save!
     redirect_to ad_campaigns_path, notice: t('messages.ad_campaigns.inactivated', name: @ad_campaign.name, company: @ad_campaign.company)
   end
 
