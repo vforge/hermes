@@ -94,11 +94,19 @@ td.c, th.c
 td.r, th.r, td.actions
   text-align: right !important
 
-td.actions ul.button-group
-  float: right !important
+td.actions
 
-  .button
-    margin: 0 !important
+  ul.button-group
+    float: right !important
+
+    &:hover .button
+      opacity: .5
+
+    .button
+      margin: 0 !important
+
+      &:hover
+        opacity: 1
 
 select.datetime
   width: auto
