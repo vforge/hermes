@@ -16,6 +16,7 @@
 /.idea
 # /config/secrets.yml
 /config/version.rb
+/db/schema.db
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /doc/
