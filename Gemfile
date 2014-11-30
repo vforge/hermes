@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', require: false
 
+# https://github.com/bkeepers/dotenv
+gem 'dotenv-rails'
+
 # Deploy with Capistrano
 group :development do
   gem 'capistrano'
