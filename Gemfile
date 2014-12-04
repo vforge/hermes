@@ -243,3 +243,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 # https://github.com/nesquena/rabl
 gem 'rabl'
+
+# https://github.com/cyu/rack-cors
+gem 'rack-cors', require: 'rack/cors'
