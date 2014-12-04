@@ -31,7 +31,8 @@ module Mercury
       g.javascripts      false
     end
 
-    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
+    # config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
+    config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
         resource '/api',
