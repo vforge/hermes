@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/vforge/mercury.png)](https://travis-ci.org/vforge/mercury)
+[![Circle CI](https://circleci.com/gh/vforge/mercury.svg?style=svg)](https://circleci.com/gh/vforge/mercury)
 [![Dependency Status](https://gemnasium.com/vforge/mercury.png)](https://gemnasium.com/vforge/mercury)
 [![Code Climate](https://codeclimate.com/github/vforge/mercury.png)](https://codeclimate.com/github/vforge/mercury)
 [![Coverage Status](https://img.shields.io/coveralls/vforge/mercury.svg)](https://coveralls.io/r/vforge/mercury)
