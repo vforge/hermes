@@ -1,0 +1,16 @@
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="150" height="150" id="svg3182" version="1.1">
+  <defs id="defs3184">
+    <filter id="filter3981" x="-0.10786675" width="1.2157335" y="-0.13520879" height="1.2704176" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5.3408145" id="feGaussianBlur3983"/>
+    </filter>
+  </defs>
+  <metadata id="metadata3187"/>
+  <g id="layer1" transform="translate(-149.72271,-430.41781)">
+    <g transform="translate(-123.57072,232.44688)" id="text3048" style="fill-opacity:1;fill:#000;font-family:Sans;font-size:39.51014328px;font-style:normal;font-weight:normal;letter-spacing:0px;line-height:125%;word-spacing:0px">
+      <g id="g3987" transform="translate(2.76635,-14.78145)">
+        <path d="m404.94277 335.15298-24.65525 0-7.0146-54.58882-22.91897 54.58882-9.79265 0-21.87719-54.58882-8.05637 54.58882-24.51635 0 16.11273-94.8012 24.308 0 19.23804 50.56063 20.34927-50.56063 24.51635 0z" id="path3211" style="-inkscape-font-specification:Aharoni Bold;fill:#fff;filter:url(#filter3981);font-family:Aharoni;font-size:142.23651123px;font-stretch:normal;font-variant:normal;font-weight:bold"/>
+        <path id="path3062" d="m404.94277 335.15298-24.65525 0-7.0146-54.58882-22.91897 54.58882-9.79265 0-21.87719-54.58882-8.05637 54.58882-24.51635 0 16.11273-94.8012 24.308 0 19.23804 50.56063 20.34927-50.56063 24.51635 0z" style="-inkscape-font-specification:Aharoni Bold;font-family:Aharoni;font-size:142.23651123px;font-stretch:normal;font-variant:normal;font-weight:bold"/>
+      </g>
+    </g>
+  </g>
+</svg>
