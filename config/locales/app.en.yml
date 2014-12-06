@@ -2,6 +2,9 @@ en:
   app:
     name: Mercury
     copyright: "&copy;2014&nbsp;Mercury"
+    locales:
+      en: English
+      pl: Polski
   icons:
     users: user
     ads: photo
@@ -120,6 +123,7 @@ en:
       email: E-Mail
       password: Password
       submit: Login
+      locale: Language
   dashboard:
     home:
       header: Home dashboard

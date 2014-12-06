@@ -120,6 +120,7 @@ pl:
       email: E-Mail
       password: Hasło
       submit: Zaloguj się
+      locale: Język
   dashboard:
     home:
       header: Panel startowy
