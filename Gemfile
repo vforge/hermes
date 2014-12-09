@@ -127,6 +127,8 @@ group :development, :test do
   # gem 'rb-inotify' unless RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
   # gem 'libnotify' unless RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
   gem 'rb-fsevent' if `uname` =~ /Darwin/
+  #gem 'ruby_gntp' if `uname` =~ /Darwin/
+  gem 'terminal-notifier-guard' if `uname` =~ /Darwin/
   gem 'factory_girl_rails'
   gem 'factory_girl-seeds'
   # https://github.com/stympy/faker

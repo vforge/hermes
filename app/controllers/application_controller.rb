@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  include BodyClasses
 
   extend ParamsFor
 
@@ -10,11 +11,6 @@ class ApplicationController < ActionController::Base
   before_action :setup_application
 
   def setup_application
-    # Load @controller_and_action_name from controller and action
-    @controller_name = self.class.name.gsub('Controller', '').underscore.gsub('/', '-')
-    @action_name = action_name
-    @body_classes = "#{@controller_name}--common #{@controller_name}-#{@action_name}"
-
     session[:locale] = I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
   end
 

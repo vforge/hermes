@@ -11,7 +11,7 @@ html
     = javascript_include_tag 'application'
     = stylesheet_link_tag    'application', media: 'all'
     = csrf_meta_tags
-  body class=@body_classes
+  body class=@body_classes.join(' ')
     - if @current_user.present?
       = render 'layouts/navigation/global'
     = render 'layouts/elements/flash_messages'
