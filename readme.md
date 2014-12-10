@@ -4,7 +4,9 @@
 [![Code Climate](https://codeclimate.com/github/vforge/mercury.png)](https://codeclimate.com/github/vforge/mercury)
 [![Coverage Status](https://img.shields.io/coveralls/vforge/mercury.svg)](https://coveralls.io/r/vforge/mercury)
 [![Inline docs](http://inch-ci.org/github/vforge/mercury.svg?branch=master)](http://inch-ci.org/github/vforge/mercury)
-# Mercury
+
+![Mercury](https://raw.githubusercontent.com/vforge/mercury/master/app/assets/images/logo-40px.png)
+
 Simple Rails-based Ad Server
 
 ### Ethymology
