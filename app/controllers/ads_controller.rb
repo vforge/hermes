@@ -3,7 +3,7 @@ class AdsController < BaseController
   before_action :set_ad, only: [:show, :edit, :update, :destroy, :activate, :inactivate]
 
   expose :ad,     attributes: :ad_params
-  params_for :ad, :filename, :href, :ad_size_id
+  params_for :ad, :file, :href, :ad_size_id
 
   def activate
     @ad.status = :active

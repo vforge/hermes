@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.1.0'
@@ -51,9 +51,10 @@ end
 gem 'resque' # or a compatible alternative / fork
 gem 'resque_mailer'
 
-# http://rubygems.org/gems/carrierwave
-gem 'mini_magick'
-gem 'carrierwave'
+# https://github.com/thoughtbot/paperclip
+gem 'paperclip', '~> 4.2'
+# https://github.com/teeparham/paperclip-meta
+gem 'paperclip-meta'
 
 # https://github.com/norman/babosa
 gem 'babosa'

@@ -40,14 +40,19 @@ ActiveRecord::Schema.define(version: 20141116174002) do
   end
 
   create_table "ads", force: true do |t|
-    t.string   "filename"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.text     "file_meta"
+    t.string   "file_fingerprint"
     t.integer  "ad_campaign_id"
     t.text     "href"
     t.string   "status"
     t.integer  "ad_size_id"
-    t.boolean  "visible",        default: true
-    t.integer  "count_requests", default: 0
-    t.integer  "count_clicks",   default: 0
+    t.boolean  "visible",           default: true
+    t.integer  "count_requests",    default: 0
+    t.integer  "count_clicks",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
