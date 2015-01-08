@@ -15,7 +15,7 @@ table.column
       tr
         td.r = ad.id
         td.c = render 'shared/status_icon', status: ad.status
-        td.c.image-thumbnail title=ad.status.text = image_tag ad.filename.thumbnail.url
+        td.c.image-thumbnail title=ad.status.text = image_tag ad.file.url(:thumb)
         td.l = ad.ad_size.format_for_index if ad.ad_size.present?
         td.l = ad.href? ? ad.href : '----'
         td.r = ad.count_requests

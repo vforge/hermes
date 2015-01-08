@@ -2,15 +2,15 @@
   = render 'shared/error_box', model: @ad
   .row
     .small-6.columns
-      = f.input :filename
+      = f.input :file
     .small-6.columns
       = f.association :ad_size, label_method: :format_for_select
   .row
     .small-6.columns
       = f.input :href
     .small-6.columns
-      - if @ad.filename?
-        = image_tag @ad.filename.thumbnail.url
+      - if @ad.file?
+        = image_tag @ad.file.url
   .row
     .column
       = f.button :submit, t('.submit')

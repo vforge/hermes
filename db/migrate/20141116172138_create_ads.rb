@@ -1,7 +1,9 @@
 class CreateAds < ActiveRecord::Migration
   def change
     create_table :ads do |t|
-      t.string  :filename
+      t.attachment :file
+      t.text    :file_meta
+      t.string  :file_fingerprint
       t.integer :ad_campaign_id
       t.text    :href
       t.string  :status
