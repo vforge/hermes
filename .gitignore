@@ -12,6 +12,7 @@
 .secret
 .yardoc
 .coveralls.yml
+*.sublime-*
 /.bundle
 /.idea
 # /config/secrets.yml

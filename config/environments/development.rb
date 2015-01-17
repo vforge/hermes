@@ -27,6 +27,6 @@ Mercury::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.cache_store = :memory_cache
+  # config.cache_store = :memory_cache
 end
 STDOUT.sync = true
