@@ -56,7 +56,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 
 # https://github.com/norman/babosa
-gem 'babosa'
+gem 'babosa', '0.3.11'
 
 # https://github.com/balexand/email_validator
 gem 'email_validator'
