@@ -1,8 +1,8 @@
 //= require vendor/jquery.min
 //= require jquery_ujs
 //= require turbolinks
-//= require vendor/foundation.min
-//= require vendor/chart
+//= require semantic-ui
+// // = require vendor/chart
 
 (function ($) {
   'use strict';
@@ -34,9 +34,9 @@
 };
 
   $(function () {
-    $(document).foundation();
+    //$(document).foundation();
 
     var ctx = document.getElementById("myChart").getContext("2d");
-    var myLineChart = new Chart(ctx).Line(data, {});
+    //var myLineChart = new Chart(ctx).Line(data, {});
   } );
 })(jQuery);

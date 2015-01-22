@@ -248,3 +248,6 @@ gem 'rabl'
 
 # https://github.com/cyu/rack-cors
 gem 'rack-cors', require: 'rack/cors'
+
+# https://github.com/doabit/semantic-ui-sass
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
