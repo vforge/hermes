@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Mercury::Application.load_tasks
+HgAu::Application.load_tasks

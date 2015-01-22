@@ -1,4 +1,4 @@
-Mercury::Application.routes.draw do
+HgAu::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get 'v1/get',       to: 'v1#get'

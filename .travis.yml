@@ -10,6 +10,6 @@ env:
 script:
   - bundle exec rspec --no-drb --format progress spec/
 before_script:
-  - mysql -e 'create database mercury_test'
-  - psql -c 'create database mercury_test' -U postgres
+  - mysql -e 'create database hgau_test'
+  - psql -c 'create database hgau_test' -U postgres
   - RAILS_ENV=test bundle exec rake --trace db:migrate test

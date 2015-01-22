@@ -1,4 +1,4 @@
-module Mercury
+module HgAu
   def self.git_version
     return $git_version if $git_version
 
