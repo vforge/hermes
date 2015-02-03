@@ -11,7 +11,7 @@ class API::V1Controller < ActionController::Base
     @object = Ad.search(params).first
 
     unless params[:debug]
-      Stat.record_impression @object, (params[:uuid] or 0)
+      Stat.record :impression, @object, (params[:uuid] or 0)
     end
   end
 
@@ -23,7 +23,7 @@ class API::V1Controller < ActionController::Base
     @object = Ad.with_status(:active).find(params[:id])
 
     unless params[:debug]
-      Stat.record_click @object, (params[:uuid] or 0)
+      Stat.record :click, @object, (params[:uuid] or 0)
     end
 
     redirect_to @object.href

@@ -20,6 +20,10 @@ class Stat < ActiveRecord::Base
 
   belongs_to :ad
 
+  def self.record(classification, ad, uuid)
+    Stat.create(classification: classification, uuid: uuid, ad_id: ad.id)
+  end
+
   def self.campaign(classification, ad_campaign)
     ad_campaign.ads.map { |ad| Stat.with_classification(classification).where(ad_id: ad.id).count }.inject(:+)
   end

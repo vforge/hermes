@@ -6,4 +6,6 @@
 [![Inline docs](http://inch-ci.org/github/vforge/hermes.svg?branch=master)](http://inch-ci.org/github/vforge/hermes)
 
 ![Hermes](https://raw.githubusercontent.com/vforge/hermes/master/app/assets/images/logo-100.png)
-Simple Rails-based Ad Server
+
+## Simple Rails-based Ad Server
+
