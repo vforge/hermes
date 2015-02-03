@@ -1,30 +1,23 @@
-.login-panel
-  = form_tag do
-    .row
-      .centered.column = image_tag 'logo.svg', alt: 'HgAu'
-    .row
-      .small-4.columns
-        label for="email" = t '.email'
-      .small-8.columns
+= content_for :above_content
+  = image_tag 'logo.svg', alt: 'HgAu'
+= form_tag join_path, method: :post, class: 'ui form' do
+  .two.fields
+    .required.field
+      label for="email" = t '.email'
+      .ui.icon.input
         input type="text" name="email" id="email"
-    .row
-      .small-4.columns
-        label for="password" = t '.password'
-      .small-8.columns
+        = semantic_icon :user
+    .required.field
+      label for="password" = t '.password'
+      .ui.icon.input
         input type="password" name="password" id="password"
-    .row
-      .column.centered
-        input.submit.button type="submit" value=t('.submit')
-    .row
-      .column
-        hr
-    .row
-      .small-4.columns = t '.locale'
-      .small-8.columns
-        dl.sub-nav
-          - I18n.available_locales.each do |locale|
-            - klass = I18n.locale == locale ? 'active' : ''
-            dd class=klass
-              = link_to t("app.locales.#{locale}"), params.merge(locale: locale)
-    .row
-      .column.centered.small.quiet = @version
+        = semantic_icon :lock
+  .center
+    input.ui.submit.button type="submit" value=t('.submit')
+.center
+  .ui.text.menu
+    .header.item = t '.locale'
+    - I18n.available_locales.each do |locale|
+      - klass = I18n.locale == locale ? 'active' : ''
+      = link_to t("app.locales.#{locale}"), params.merge(locale: locale), class: "#{klass} item"
+.center.small.quiet = @version

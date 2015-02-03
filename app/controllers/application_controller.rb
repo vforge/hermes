@@ -10,9 +10,7 @@ class ApplicationController < ActionController::Base
 
   before_action :setup_application
 
-  def setup_application
-    session[:locale] = I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
-  end
+  protected
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -24,5 +22,11 @@ class ApplicationController < ActionController::Base
 
   def authorize_admin
     redirect_to join_url, alert: I18n.t('messages.unauthorized') unless current_user && current_user.role.admin?
+  end
+
+  private
+
+  def setup_application
+    session[:locale] = I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
   end
 end

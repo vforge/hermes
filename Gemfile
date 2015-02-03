@@ -147,6 +147,17 @@ group :development, :test do
   gem 'i18n-tasks', '~> 0.7.4'
 
   gem 'coveralls'#, require: false
+
+  # https://github.com/whitesmith/guard-rubycritic
+  # gem 'guard-rubycritic'
+
+  # https://github.com/amatsuda/traceroute
+  # rake traceroute
+  gem 'traceroute'
+
+  # https://github.com/whitesmith/rubycritic
+  # rubycritic
+  # gem 'rubycritic'
 end
 
 group :development do

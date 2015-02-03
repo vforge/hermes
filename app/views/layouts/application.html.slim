@@ -12,10 +12,15 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = csrf_meta_tags
   body class=@body_classes.join(' ')
-    - if @current_user.present?
-      = render 'layouts/navigation/global'
-    = render 'layouts/elements/flash_messages'
-    = yield :above_content
-    .row#application = yield
-    /= render 'layouts/navigation/footer'
-    = render 'layouts/elements/fonts'
+    .ui.inverted.masthead.segment
+      .ui.page.grid
+        .column = yield :above_content
+    .ui.page.grid
+      .column
+        - if @current_user.present?
+          = render 'layouts/navigation/global'
+        /= render 'layouts/elements/flash_messages'
+        = semantic_flash
+        .row#application = yield
+        /= render 'layouts/navigation/footer'
+        = render 'layouts/elements/fonts'
