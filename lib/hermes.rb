@@ -1,4 +1,4 @@
-module HgAu
+module Hermes
   def self.git_version
     return $git_version if $git_version
 

@@ -1,4 +1,4 @@
-require 'hgau'
+require 'hermes'
 
 class SessionController < ApplicationController
   before_action :load_version, only: [:new, :create]
@@ -26,6 +26,6 @@ class SessionController < ApplicationController
   private
 
   def load_version
-    @version = HgAu.git_version
+    @version = Hermes.git_version
   end
 end

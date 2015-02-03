@@ -1,8 +1,9 @@
-[![Build Status](https://travis-ci.org/vforge/hgau.svg)](https://travis-ci.org/vforge/hgau)
-[![Circle CI](https://circleci.com/gh/vforge/hgau.svg?style=svg)](https://circleci.com/gh/vforge/hgau)
-[![Dependency Status](https://gemnasium.com/vforge/hgau.svg)](https://gemnasium.com/vforge/hgau)
-[![Code Climate](https://codeclimate.com/github/vforge/hgau.svg)](https://codeclimate.com/github/vforge/hgau)
-[![Coverage Status](https://img.shields.io/coveralls/vforge/hgau.svg)](https://coveralls.io/r/vforge/hgau)
-[![Inline docs](http://inch-ci.org/github/vforge/hgau.svg?branch=master)](http://inch-ci.org/github/vforge/hgau)
+[![Build Status](https://travis-ci.org/vforge/hermes.svg)](https://travis-ci.org/vforge/hermes)
+[![Circle CI](https://circleci.com/gh/vforge/hermes.svg?style=svg)](https://circleci.com/gh/vforge/hermes)
+[![Dependency Status](https://gemnasium.com/vforge/hermes.svg)](https://gemnasium.com/vforge/hermes)
+[![Code Climate](https://codeclimate.com/github/vforge/hermes.svg)](https://codeclimate.com/github/vforge/hermes)
+[![Coverage Status](https://img.shields.io/coveralls/vforge/hermes.svg)](https://coveralls.io/r/vforge/hermes)
+[![Inline docs](http://inch-ci.org/github/vforge/hermes.svg?branch=master)](http://inch-ci.org/github/vforge/hermes)
 
+# Hermes
 Simple Rails-based Ad Server

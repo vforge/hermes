@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-HgAu::Application.load_tasks
+Hermes::Application.load_tasks
