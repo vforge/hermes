@@ -3,13 +3,13 @@ echo Drop DB
 rm -f db/development.sqlite3
 rm -f db/test.sqlite3
 echo DEV Migrate
-rake db:migrate
+bundle exec rake db:migrate
 echo DEV Seed
-rake db:seed
+bundle exec rake db:seed
 echo DEV Import: AdSize
-rake import:adsizes
+bundle exec rake import:adsizes
 echo TEST Migrate
-RAILS_ENV=test rake db:migrate
+RAILS_ENV=test bundle exec rake db:migrate
 echo De-annotate
 annotate -d
 echo Annotate

@@ -5,5 +5,5 @@
 [![Coverage Status](https://img.shields.io/coveralls/vforge/hermes.svg)](https://coveralls.io/r/vforge/hermes)
 [![Inline docs](http://inch-ci.org/github/vforge/hermes.svg?branch=master)](http://inch-ci.org/github/vforge/hermes)
 
-# Hermes
+![Hermes](https://raw.githubusercontent.com/vforge/hermes/master/app/assets/images/logo-100.png)
 Simple Rails-based Ad Server

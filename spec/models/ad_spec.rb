@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20141116174002
+# Schema version: 20150203213425
 #
 # Table name: ads
 #
@@ -10,8 +10,6 @@
 #  status         :string(255)
 #  ad_size_id     :integer
 #  visible        :boolean          default(TRUE)
-#  count_requests :integer          default(0)
-#  count_clicks   :integer          default(0)
 #  created_at     :datetime
 #  updated_at     :datetime
 #

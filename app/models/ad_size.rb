@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20141116174002
+# Schema version: 20150203213425
 #
 # Table name: ad_sizes
 #

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20141116174002
+# Schema version: 20150203213425
 #
 # Table name: ad_campaigns
 #
@@ -33,10 +33,10 @@ class AdCampaign < VisibleModel
   has_many  :ads
 
   def count_clicks
-    ads.sum(:count_clicks)
+    Stat.campaign :click, self
   end
 
   def count_requests
-    ads.sum(:count_requests)
+    Stat.campaign :impression, self
   end
 end

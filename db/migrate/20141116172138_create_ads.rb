@@ -7,10 +7,6 @@ class CreateAds < ActiveRecord::Migration
       t.string  :status
       t.integer :ad_size_id
       t.boolean :visible, default: true
-
-      t.integer :count_requests,  default: 0
-      t.integer :count_clicks,    default: 0
-
       t.timestamps
     end
 

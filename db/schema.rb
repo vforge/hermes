@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116174002) do
+ActiveRecord::Schema.define(version: 20150203213425) do
 
   create_table "ad_campaigns", force: true do |t|
     t.string   "name"
@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 20141116174002) do
     t.string   "status"
     t.integer  "ad_size_id"
     t.boolean  "visible",        default: true
-    t.integer  "count_requests", default: 0
-    t.integer  "count_clicks",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,6 +54,16 @@ ActiveRecord::Schema.define(version: 20141116174002) do
   add_index "ads", ["visible", "status", "ad_size_id"], name: "ad_sa2"
   add_index "ads", ["visible", "status"], name: "ad_s"
   add_index "ads", ["visible"], name: "ad_v"
+
+  create_table "stats", force: true do |t|
+    t.string   "classification"
+    t.string   "uuid"
+    t.integer  "ad_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stats", ["classification"], name: "st_c"
 
   create_table "target_params", force: true do |t|
     t.string   "name"

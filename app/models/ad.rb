@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20141116174002
+# Schema version: 20150203213425
 #
 # Table name: ads
 #
@@ -10,8 +10,6 @@
 #  status         :string(255)
 #  ad_size_id     :integer
 #  visible        :boolean          default(TRUE)
-#  count_requests :integer          default(0)
-#  count_clicks   :integer          default(0)
 #  created_at     :datetime
 #  updated_at     :datetime
 #
@@ -40,13 +38,21 @@ class Ad < VisibleModel
     filename.url
   end
 
+  def count_clicks
+    Stat.ad :click, self
+  end
+
+  def count_requests
+    Stat.ad :impression, self
+  end
+
   def self.search(params)
     results = Ad.randomize
 
-    results = results.includes(:ad_size).where('ad_sizes.width >= ?', params[:mw]).references(:ad_size) if params[:mw].present?
-    results = results.includes(:ad_size).where('ad_sizes.width <= ?', params[:xw]).references(:ad_size) if params[:xw].present?
-    results = results.includes(:ad_size).where('ad_sizes.height >= ?', params[:mh]).references(:ad_size) if params[:mh].present?
-    results = results.includes(:ad_size).where('ad_sizes.height <= ?', params[:xh]).references(:ad_size) if params[:xh].present?
+    results = results.includes(:ad_size).where('ad_sizes.width >= ?', params[:wm]).references(:ad_size) if params[:wm].present?
+    results = results.includes(:ad_size).where('ad_sizes.width <= ?', params[:wx]).references(:ad_size) if params[:wx].present?
+    results = results.includes(:ad_size).where('ad_sizes.height >= ?', params[:hm]).references(:ad_size) if params[:hm].present?
+    results = results.includes(:ad_size).where('ad_sizes.height <= ?', params[:hx]).references(:ad_size) if params[:hx].present?
     results = results.includes(:ad_size).where('ad_sizes.name = ?', params[:n]).references(:ad_size) if params[:n].present?
 
     results
