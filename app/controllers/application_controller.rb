@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def authorize_admin
     redirect_to join_url, alert: I18n.t('messages.unauthorized') unless current_user && current_user.role.admin?
   end
+
+  def render_unavailable
+    render nothing: true, status: :service_unavailable
+  end
 end

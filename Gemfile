@@ -247,5 +247,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'rabl'
 
 # https://github.com/cyu/rack-cors
+# For Easy generating JSON API
 gem 'rack-cors', require: 'rack/cors'
 
+# https://github.com/solnic/virtus
+# include Virtus.model (see: app/services)
+gem 'virtus'
+
+# https://github.com/biola/Voight-Kampff
+# request.bot?
+# rake voight_kampff:import_user_agents
+gem 'voight_kampff'

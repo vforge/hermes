@@ -6,26 +6,22 @@ class API::V1Controller < ActionController::Base
   # - n - name of an Ad
   # - p - provider
   # - [debug] - do not count impressions / clicks
+  # - [uuid] - unique user identifier
 
   def get
-    @object = Ad.search(params).first
+    render_unavailable if request.bot?
 
-    unless params[:debug]
-      Stat.record :impression, @object, (params[:uuid] or 0)
-    end
+    @object = AdFind.call(params)
   end
 
   # params
   # - id - id of an Ad to click
   # - [debug] - do not count impressions / clicks
+  # - [uuid] - unique user identifier
 
   def click
-    @object = Ad.with_status(:active).find(params[:id])
+    render_unavailable if request.bot?
 
-    unless params[:debug]
-      Stat.record :click, @object, (params[:uuid] or 0)
-    end
-
-    redirect_to @object.href
+    redirect_to AdClick.call(params).href
   end
 end
