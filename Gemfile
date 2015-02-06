@@ -52,7 +52,7 @@ gem 'resque' # or a compatible alternative / fork
 gem 'resque_mailer'
 
 # http://rubygems.org/gems/carrierwave
-gem 'mini_magick'
+gem 'mini_magick', '4.0.3'
 gem 'carrierwave'
 
 # https://github.com/norman/babosa

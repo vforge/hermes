@@ -1,4 +1,4 @@
-class AdFind
+class AdClick
   include Service
 
   attribute :params, Hash[Symbol => String]
