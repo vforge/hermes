@@ -131,6 +131,7 @@ pl:
         today_clicks: Kliknięć (dziś)
         total_requests: Zapytań (suma)
         total_clicks: Kliknięć (suma)
+        active_ads: Ilość aktywnych reklam
   simple_form:
     placeholders:
       ad:

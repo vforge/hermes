@@ -4,7 +4,7 @@ class DashboardController < BaseController
 
     active_campaigns = AdCampaign.not_deleted.to_a
 
-    @modules[:ad_campaigns]   = active_campaigns.count
+    @modules[:active_ads]   = active_campaigns.sum(&:count_active_ads)
     # @modules[:today_requests] = '?'
     # @modules[:today_clicks]   = '?'
     @modules[:total_requests] = active_campaigns.sum(&:count_requests)

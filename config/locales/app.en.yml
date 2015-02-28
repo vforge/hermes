@@ -134,6 +134,7 @@ en:
         today_clicks: Clicks (today)
         total_requests: Requests (total)
         total_clicks: Clicks (total)
+        active_ads: Active Ads
   simple_form:
     placeholders:
       ad:

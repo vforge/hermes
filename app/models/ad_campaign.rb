@@ -42,7 +42,11 @@ class AdCampaign < ActiveRecord::Base
     Stat.campaign :impression, self
   end
 
-  def is_active
-    false
+  def count_active_ads
+    ads.with_status(:active).count
+  end
+
+  def count_inactive_ads
+    ads.with_status(:inactive).count
   end
 end
