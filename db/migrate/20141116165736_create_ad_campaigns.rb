@@ -7,14 +7,14 @@ class CreateAdCampaigns < ActiveRecord::Migration
       t.datetime  :ending_at
       t.string    :target
       t.string    :status
-      t.boolean   :visible, default: true
+      t.datetime  :deleted_at
 
       t.timestamps
     end
 
-    add_index :ad_campaigns, [:visible], name: :ac_v
-    add_index :ad_campaigns, [:visible, :company], name: :ac_c
-    add_index :ad_campaigns, [:visible, :status],  name: :ac_s
-    add_index :ad_campaigns, [:visible, :status, :starting_at, :ending_at], name: :ac_sse
+    add_index :ad_campaigns, [:deleted_at], name: :ac_x
+    add_index :ad_campaigns, [:deleted_at, :company], name: :ac_c
+    add_index :ad_campaigns, [:deleted_at, :status],  name: :ac_s
+    add_index :ad_campaigns, [:deleted_at, :status, :starting_at, :ending_at], name: :ac_sse
   end
 end

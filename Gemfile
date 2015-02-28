@@ -258,3 +258,6 @@ gem 'virtus'
 # request.bot?
 # rake voight_kampff:import_user_agents
 gem 'voight_kampff'
+
+# https://github.com/JackDanger/permanent_records
+gem 'permanent_records'

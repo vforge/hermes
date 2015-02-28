@@ -20,24 +20,27 @@ ActiveRecord::Schema.define(version: 20150203213425) do
     t.datetime "ending_at"
     t.string   "target"
     t.string   "status"
-    t.boolean  "visible",     default: true
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ad_campaigns", ["visible", "company"], name: "ac_c"
-  add_index "ad_campaigns", ["visible", "status", "starting_at", "ending_at"], name: "ac_sse"
-  add_index "ad_campaigns", ["visible", "status"], name: "ac_s"
-  add_index "ad_campaigns", ["visible"], name: "ac_v"
+  add_index "ad_campaigns", ["deleted_at", "company"], name: "ac_c"
+  add_index "ad_campaigns", ["deleted_at", "status", "starting_at", "ending_at"], name: "ac_sse"
+  add_index "ad_campaigns", ["deleted_at", "status"], name: "ac_s"
+  add_index "ad_campaigns", ["deleted_at"], name: "ac_x"
 
   create_table "ad_sizes", force: true do |t|
     t.string   "name"
     t.string   "classification"
     t.integer  "width"
     t.integer  "height"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "ad_sizes", ["status"], name: "ad_sizes_s"
 
   create_table "ads", force: true do |t|
     t.string   "filename"
@@ -45,15 +48,15 @@ ActiveRecord::Schema.define(version: 20150203213425) do
     t.text     "href"
     t.string   "status"
     t.integer  "ad_size_id"
-    t.boolean  "visible",        default: true
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ads", ["visible", "status", "ad_campaign_id"], name: "ad_sa"
-  add_index "ads", ["visible", "status", "ad_size_id"], name: "ad_sa2"
-  add_index "ads", ["visible", "status"], name: "ad_s"
-  add_index "ads", ["visible"], name: "ad_v"
+  add_index "ads", ["deleted_at", "status", "ad_campaign_id"], name: "ad_sa"
+  add_index "ads", ["deleted_at", "status", "ad_size_id"], name: "ad_sa2"
+  add_index "ads", ["deleted_at", "status"], name: "ad_s"
+  add_index "ads", ["deleted_at"], name: "ad_x"
 
   create_table "stats", force: true do |t|
     t.string   "classification"
@@ -81,13 +84,13 @@ ActiveRecord::Schema.define(version: 20150203213425) do
     t.string   "password_digest"
     t.string   "role"
     t.string   "locale"
-    t.boolean  "visible",         default: true
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["visible", "email", "password_digest"], name: "us_ep"
-  add_index "users", ["visible", "role"], name: "us_r"
-  add_index "users", ["visible"], name: "us_v"
+  add_index "users", ["deleted_at", "email", "password_digest"], name: "us_ep"
+  add_index "users", ["deleted_at", "role"], name: "us_r"
+  add_index "users", ["deleted_at"], name: "us_x"
 
 end

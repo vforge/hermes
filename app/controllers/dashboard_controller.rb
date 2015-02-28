@@ -2,7 +2,7 @@ class DashboardController < BaseController
   def home
     @modules = {}
 
-    active_campaigns = AdCampaign.with_status(:active).to_a
+    active_campaigns = AdCampaign.not_deleted.to_a
 
     @modules[:ad_campaigns]   = active_campaigns.count
     # @modules[:today_requests] = '?'

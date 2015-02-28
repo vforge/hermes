@@ -1,0 +1,16 @@
+#!/bin/bash
+echo "Fetching from GITHUB"
+git pull --rebase
+
+echo "Installing GEMs"
+bundle install
+
+echo "Migrating DB"
+bundle exec rake db:migrate
+
+echo "Building assets"
+bundle exec rake assets:clean assets:precompile
+
+echo "Booting THIN"
+/etc/init.d/thin stop
+/etc/init.d/thin start

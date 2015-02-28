@@ -9,22 +9,23 @@
 #  href           :text
 #  status         :string(255)
 #  ad_size_id     :integer
-#  visible        :boolean          default(TRUE)
+#  deleted_at     :datetime
 #  created_at     :datetime
 #  updated_at     :datetime
 #
 # Indexes
 #
-#  ad_s    (visible,status)
-#  ad_sa   (visible,status,ad_campaign_id)
-#  ad_sa2  (visible,status,ad_size_id)
-#  ad_v    (visible)
+#  ad_s    (deleted_at,status)
+#  ad_sa   (deleted_at,status,ad_campaign_id)
+#  ad_sa2  (deleted_at,status,ad_size_id)
+#  ad_x    (deleted_at)
 #
 
-class Ad < VisibleModel
-  scope :randomize, -> { with_status(:active).order_by_rand }
+class Ad < ActiveRecord::Base
+  scope :active, -> { not_deleted.with_status(:active).where('ad_campaign_id IN (?)', AdCampaign.active_ids) }
+  scope :randomized, -> { active.order_by_rand }
 
-  enumerize :status, in: [:active, :inactive], scope: true, default: :active
+  enumerize :status, in: [:active, :inactive], scope: true, default: :inactive
 
   validates :href,        presence: true
   validates :filename,    presence: true
@@ -47,13 +48,13 @@ class Ad < VisibleModel
   end
 
   def self.search(params)
-    results = Ad.randomize
+    results = Ad.randomized
 
-    results = results.includes(:ad_size).where('ad_sizes.width >= ?', params[:wm]).references(:ad_size) if params[:wm].present?
-    results = results.includes(:ad_size).where('ad_sizes.width <= ?', params[:wx]).references(:ad_size) if params[:wx].present?
-    results = results.includes(:ad_size).where('ad_sizes.height >= ?', params[:hm]).references(:ad_size) if params[:hm].present?
-    results = results.includes(:ad_size).where('ad_sizes.height <= ?', params[:hx]).references(:ad_size) if params[:hx].present?
-    results = results.includes(:ad_size).where('ad_sizes.name = ?', params[:n]).references(:ad_size) if params[:n].present?
+    results = results.includes(:ad_size).where('ad_sizes.width >= ?',   params[:wm]).references(:ad_size) if params[:wm].present?
+    results = results.includes(:ad_size).where('ad_sizes.width <= ?',   params[:wx]).references(:ad_size) if params[:wx].present?
+    results = results.includes(:ad_size).where('ad_sizes.height >= ?',  params[:hm]).references(:ad_size) if params[:hm].present?
+    results = results.includes(:ad_size).where('ad_sizes.height <= ?',  params[:hx]).references(:ad_size) if params[:hx].present?
+    results = results.includes(:ad_size).where('ad_sizes.name = ?',       params[:n]).references(:ad_size)  if params[:n].present?
 
     results
   end

@@ -10,21 +10,19 @@
 #  ending_at   :datetime
 #  target      :string(255)
 #  status      :string(255)
-#  visible     :boolean          default(TRUE)
+#  deleted_at  :datetime
 #  created_at  :datetime
 #  updated_at  :datetime
 #
 # Indexes
 #
-#  ac_c    (visible,company)
-#  ac_s    (visible,status)
-#  ac_sse  (visible,status,starting_at,ending_at)
-#  ac_v    (visible)
+#  ac_c    (deleted_at,company)
+#  ac_s    (deleted_at,status)
+#  ac_sse  (deleted_at,status,starting_at,ending_at)
+#  ac_x    (deleted_at)
 #
 
-class AdCampaign < VisibleModel
-  enumerize :status, in: [:active, :inactive], scope: true, default: :active
-
+class AdCampaign < ActiveRecord::Base
   validates :name,        presence: true
   validates :company,     presence: true
   validates :starting_at, presence: true
@@ -32,11 +30,19 @@ class AdCampaign < VisibleModel
 
   has_many  :ads
 
+  def self.active_ids
+    not_deleted.pluck(:id)
+  end
+
   def count_clicks
     Stat.campaign :click, self
   end
 
   def count_requests
     Stat.campaign :impression, self
+  end
+
+  def is_active
+    false
   end
 end

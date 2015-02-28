@@ -8,8 +8,13 @@
 #  classification :string(255)
 #  width          :integer
 #  height         :integer
+#  status         :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
+#
+# Indexes
+#
+#  ad_sizes_s  (status)
 #
 
 FactoryGirl.define do

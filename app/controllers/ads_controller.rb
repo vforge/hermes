@@ -18,7 +18,7 @@ class AdsController < BaseController
   end
 
   def index
-    @ads = @ad_campaign.ads
+    @ads = @ad_campaign.ads.not_deleted
   end
 
   def show
@@ -35,7 +35,7 @@ class AdsController < BaseController
     @ad = @ad_campaign.ads.new(ad_params)
 
     if @ad.save
-      redirect_to edit_ad_campaign_ad_path(@ad_campaign, @ad), notice: t('messages.ads.created')
+      redirect_to ad_campaign_ads_path(@ad_campaign), notice: t('messages.ads.created')
     else
       render :new
     end
@@ -43,7 +43,7 @@ class AdsController < BaseController
 
   def update
     if @ad.update(ad_params)
-      redirect_to edit_ad_campaign_ad_path(@ad_campaign, @ad), notice: t('messages.ads.updated')
+      redirect_to ad_campaign_ads_path(@ad_campaign), notice: t('messages.ads.updated')
     else
       render :edit
     end

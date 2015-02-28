@@ -8,15 +8,20 @@
 #  classification :string(255)
 #  width          :integer
 #  height         :integer
+#  status         :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
 #
+# Indexes
+#
+#  ad_sizes_s  (status)
+#
 
 class AdSize < ActiveRecord::Base
-  enumerize :classification, in: [:primary, :secondary], scope: true, default: :secondary
+  enumerize :classification,  in: [:primary, :secondary], scope: true, default: :secondary
+  enumerize :status,          in: [:active, :inactive],   scope: true, default: :active
 
   validates :name,            presence: true
-  validates :classification,  presence: true
   validates :width,           presence: true, numericality: { only_integer: true, greater_than: 1 }
   validates :height,          presence: true, numericality: { only_integer: true, greater_than: 1 }
 

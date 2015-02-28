@@ -8,15 +8,15 @@
 #  password_digest :string(255)
 #  role            :string(255)
 #  locale          :string(255)
-#  visible         :boolean          default(TRUE)
+#  deleted_at      :datetime
 #  created_at      :datetime
 #  updated_at      :datetime
 #
 # Indexes
 #
-#  us_ep  (visible,email,password_digest)
-#  us_r   (visible,role)
-#  us_v   (visible)
+#  us_ep  (deleted_at,email,password_digest)
+#  us_r   (deleted_at,role)
+#  us_x   (deleted_at)
 #
 
 require 'rails_helper'

@@ -9,16 +9,16 @@
 #  href           :text
 #  status         :string(255)
 #  ad_size_id     :integer
-#  visible        :boolean          default(TRUE)
+#  deleted_at     :datetime
 #  created_at     :datetime
 #  updated_at     :datetime
 #
 # Indexes
 #
-#  ad_s    (visible,status)
-#  ad_sa   (visible,status,ad_campaign_id)
-#  ad_sa2  (visible,status,ad_size_id)
-#  ad_v    (visible)
+#  ad_s    (deleted_at,status)
+#  ad_sa   (deleted_at,status,ad_campaign_id)
+#  ad_sa2  (deleted_at,status,ad_size_id)
+#  ad_x    (deleted_at)
 #
 
 FactoryGirl.define do
