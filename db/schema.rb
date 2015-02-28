@@ -36,11 +36,13 @@ ActiveRecord::Schema.define(version: 20150203213425) do
     t.integer  "width"
     t.integer  "height"
     t.string   "status"
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ad_sizes", ["status"], name: "ad_sizes_s"
+  add_index "ad_sizes", ["deleted_at", "status"], name: "ad_sizes_s"
+  add_index "ad_sizes", ["deleted_at"], name: "ad_sizes_x"
 
   create_table "ads", force: true do |t|
     t.string   "filename"
@@ -81,7 +83,7 @@ ActiveRecord::Schema.define(version: 20150203213425) do
 
   create_table "users", force: true do |t|
     t.string   "email"
-    t.string   "password_digest"
+    t.binary   "password_digest"
     t.string   "role"
     t.string   "locale"
     t.datetime "deleted_at"
