@@ -6,7 +6,7 @@ class AdClick
   def call
     ad = Ad.with_status(:active).find(params[:id])
 
-    unless params[:debug]
+    if params[:debug].nil? && ad.present?
       Stat.record :click, ad, (params[:uuid] or 0)
     end
 

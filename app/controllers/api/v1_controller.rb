@@ -10,8 +10,8 @@ class API::V1Controller < ActionController::Base
 
   def get
     render_unavailable if request.bot?
-
     @object = AdFind.call(params: params)
+    render_unavailable if @object.nil?
   end
 
   # params
@@ -21,7 +21,15 @@ class API::V1Controller < ActionController::Base
 
   def click
     render_unavailable if request.bot?
+    ad = AdClick.call(params: params)
+    render_unavailable if ad.nil?
 
-    redirect_to AdClick.call(params: params).href
+    redirect_to ad.href
+  end
+
+  private
+
+  def render_unavailable
+    render nothing: true, status: :service_unavailable
   end
 end

@@ -6,7 +6,7 @@ class AdFind
   def call
     ad = Ad.search(params).first
 
-    unless params[:debug]
+    if params[:debug].nil? && ad.present?
       Stat.record :impression, ad, (params[:uuid] or 0)
     end
 
