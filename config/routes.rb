@@ -28,7 +28,7 @@ Hermes::Application.routes.draw do
   post 'join',  to: 'session#create'
   get  'leave', to: 'session#destroy',  as: 'logout'
 
-  get  'home',  to: 'dashboard#home',   as: 'dashboard'
+  # get  'home',  to: 'dashboard#home',   as: 'dashboard'
 
   root to: 'redirect#root'
 end
