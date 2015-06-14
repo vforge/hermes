@@ -11,7 +11,7 @@ class SessionController < ApplicationController
 
     if user && user.authenticate(params[:password].strip)
       session[:user_id] = user.id
-      redirect_to dashboard_path, notice: t('messages.session.logged_in', user: user.email)
+      redirect_to root_path, notice: t('messages.session.logged_in', user: user.email)
     else
       flash.now.alert = t('messages.session.error')
       render action: 'new'

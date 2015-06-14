@@ -7,6 +7,8 @@ gem 'rails', '~> 4.1.0'
 gem 'sqlite3'
 gem 'mysql2', '0.3.15'
 
+gem 'thin'
+
 # Use SCSS for stylesheets
 gem 'sass', '~> 3.2.5'
 gem 'sass-rails', '~> 4.0.2'

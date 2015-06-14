@@ -26,7 +26,7 @@
         i class="fa fa-#{icon} fa-fw"
       = t "#{i18n_prefix}#{models_name}.index.header", count: count
     ul.button-group.column
-      li = link_to send("dashboard_path"), class: 'button' do
+      li = link_to send("root_path"), class: 'button' do
         i.fa.fa-arrow-left.fa-fw
         = t 'shared.actions.back'
       - unless readonly
