@@ -25,7 +25,9 @@ class Stat < ActiveRecord::Base
   end
 
   def self.campaign(classification, ad_campaign)
-    ad_campaign.ads.map { |ad| Stat.with_classification(classification).where(ad_id: ad.id).count }.inject(:+)
+    # ad_campaign.ads.map { |ad| Stat.with_classification(classification).where(ad_id: ad.id).count }.inject(:+)
+
+    Stat.with_classification(classification).where(ad_id: ad_campaign.ads.pluck(:id)).count
   end
 
   def self.ad(classification, ad)

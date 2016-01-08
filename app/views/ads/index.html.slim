@@ -7,8 +7,8 @@ table.column
       th.c
       th.l = t '.th.thumbnail'
       th.l = t '.th.href'
-      /th.r = t '.th.count_requests'
-      /th.r = t '.th.count_clicks'
+      th.r = t '.th.count_requests'
+      th.r = t '.th.count_clicks'
       th
   tbody
     - @ads.each do |ad|
@@ -18,8 +18,8 @@ table.column
         td.c.image-thumbnail title=ad.status.text = image_tag ad.filename.thumbnail.url
         td.l = ad.ad_size.format_for_index if ad.ad_size.present?
         td.l = ad.href? ? ad.href : '----'
-        /td.r = ad.count_requests
-        /td.r
+        td.r = ad.count_requests
+        td.r
           = ad.count_clicks
           |&nbsp;
           = percent(ad.count_clicks, ad.count_requests, "(%.2f%%)")

@@ -54,7 +54,7 @@ class Ad < ActiveRecord::Base
     results = results.includes(:ad_size).where('ad_sizes.width <= ?',   params[:wx]).references(:ad_size) if params[:wx].present?
     results = results.includes(:ad_size).where('ad_sizes.height >= ?',  params[:hm]).references(:ad_size) if params[:hm].present?
     results = results.includes(:ad_size).where('ad_sizes.height <= ?',  params[:hx]).references(:ad_size) if params[:hx].present?
-    results = results.includes(:ad_size).where('ad_sizes.name = ?',       params[:n]).references(:ad_size)  if params[:n].present?
+    results = results.includes(:ad_size).where('ad_sizes.name = ?',     params[:n]).references(:ad_size)  if params[:n].present?
 
     results
   end

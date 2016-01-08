@@ -8,8 +8,8 @@ table.column
       th.c = t '.th.company'
       th.c = t '.th.from_to'
       th.c = t '.th.ads'
-      /th.r = t '.th.count_requests'
-      /th.r = t '.th.count_clicks'
+      th.r = t '.th.count_requests'
+      th.r = t '.th.count_clicks'
       /th.c = t '.th.target'
       th
   tbody
@@ -35,8 +35,8 @@ table.column
             - if ad_campaign.count_inactive_ads > 0
               |&nbsp;+
               = ad_campaign.count_inactive_ads
-        /td.r = ad_campaign.count_requests
-        /td.r
+        td.r = ad_campaign.count_requests
+        td.r
           = ad_campaign.count_clicks
           |&nbsp;
           = percent(ad_campaign.count_clicks, ad_campaign.count_requests, "(%.2f%%)")
