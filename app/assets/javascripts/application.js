@@ -1,6 +1,6 @@
 //= require vendor/jquery.min
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require vendor/foundation.min
 
 (function ($) {
