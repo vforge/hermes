@@ -39,13 +39,13 @@ class Ad < ActiveRecord::Base
     filename.url
   end
 
-  def count_clicks
-    Stat.ad :click, self
-  end
-
-  def count_requests
-    Stat.ad :impression, self
-  end
+  # def count_clicks
+  #   Stat.ad :click, self
+  # end
+  #
+  # def count_requests
+  #   Stat.ad :impression, self
+  # end
 
   def self.search(params)
     results = Ad.randomized

@@ -34,13 +34,13 @@ class AdCampaign < ActiveRecord::Base
     not_deleted.pluck(:id)
   end
 
-  def count_clicks
-    Stat.campaign :click, self
-  end
-
-  def count_requests
-    Stat.campaign :impression, self
-  end
+  # def count_clicks
+  #   Stat.campaign :click, self
+  # end
+  #
+  # def count_requests
+  #   Stat.campaign :impression, self
+  # end
 
   def count_active_ads
     ads.with_status(:active).count

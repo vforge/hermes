@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203213425) do
+ActiveRecord::Schema.define(version: 20160108191537) do
 
   create_table "ad_campaigns", force: true do |t|
     t.string   "name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20150203213425) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "count_clicks",   default: 0
+    t.integer  "count_requests", default: 0
   end
 
   add_index "ad_campaigns", ["deleted_at", "company"], name: "ac_c"
@@ -53,6 +55,8 @@ ActiveRecord::Schema.define(version: 20150203213425) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "count_clicks",   default: 0
+    t.integer  "count_requests", default: 0
   end
 
   add_index "ads", ["deleted_at", "status", "ad_campaign_id"], name: "ad_sa"
